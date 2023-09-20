@@ -43,6 +43,19 @@ final class DeliverMainView: UIScrollView {
         return imageView
     }()
     
+    private let categoryDeliverButton = MainCategoryButton(buttonImage: "CategoryDeliverButton")
+    private let categoryBMartButton = MainCategoryButton(buttonImage: "CategoryBMardButton")
+    private let categoryStoreButton = MainCategoryButton(buttonImage: "CategoryStoreButton")
+    
+    private let categoryButtonStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        stackView.alignment = .fill
+        stackView.distribution = .fillEqually
+        return stackView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: .zero)
         configureInitialSetting()
@@ -56,8 +69,16 @@ final class DeliverMainView: UIScrollView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        let viewWidth = Int(self.frame.width)
+        
+        // 30: stackViewLeading/trailingAnchorConstant ,20: stackViewSpacing
+        let categoryButtonHeight = CGFloat((viewWidth - 30 - 20) / 3)
+        
         couponAdImageView.clipsToBounds = true
         couponAdImageView.layer.cornerRadius = couponAdImageView.frame.height / 8
+
+        categoryButtonStackView.heightAnchor.constraint(equalToConstant: categoryButtonHeight).isActive = true
     }
 }
 // MARK: Configure Initial Setting
@@ -70,8 +91,15 @@ extension DeliverMainView {
 // MARK: Configure Layout
 extension DeliverMainView {
     private func configureSubviews() {
+        
+        [categoryDeliverButton, categoryBMartButton, categoryStoreButton].forEach {
+            categoryButtonStackView.addArrangedSubview($0)
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
+        
         [mainSearchBar,
-         couponAdImageView
+         couponAdImageView,
+         categoryButtonStackView
         ].forEach {
             addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
@@ -80,6 +108,7 @@ extension DeliverMainView {
     
     private func configureLayout() {
         let safeArea = safeAreaLayoutGuide
+        
         NSLayoutConstraint.activate([
             // MARK: mainSearchBar Constraints
             mainSearchBar.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.06),
@@ -92,6 +121,12 @@ extension DeliverMainView {
             couponAdImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             couponAdImageView.topAnchor.constraint(equalTo: mainSearchBar.bottomAnchor, constant: 10),
             couponAdImageView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 15),
+            
+            // MARK: categoryButtonStackView Constraints
+//            categoryButtonStackView.heightAnchor.constraint(equalToConstant: categoryButtonHeight),
+            categoryButtonStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            categoryButtonStackView.topAnchor.constraint(equalTo: couponAdImageView.bottomAnchor, constant: 10),
+            categoryButtonStackView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 15),
         ])
     }
 }

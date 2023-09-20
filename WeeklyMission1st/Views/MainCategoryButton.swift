@@ -12,10 +12,16 @@ final class MainCategoryButton: UIButton {
     init(buttonImage: String) {
         super.init(frame: .zero)
         setImage(UIImage(named: buttonImage), for: .normal)
+        backgroundColor = .blue
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        self.clipsToBounds = true
+        self.layer.cornerRadius = self.frame.height / 11.333
     }
 }
 
@@ -24,6 +30,7 @@ extension MainCategoryButton {
     private func configureLayout() {
         let safeArea = safeAreaLayoutGuide
         NSLayoutConstraint.activate([
+            heightAnchor.constraint(equalTo: widthAnchor),
             topAnchor.constraint(equalTo: safeArea.topAnchor),
             bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
             leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
