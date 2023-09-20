@@ -56,6 +56,16 @@ final class DeliverMainView: UIScrollView {
         return stackView
     }()
     
+    
+    private let containerStackView: UIStackView = {
+       let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 10
+        stackView.alignment = .fill
+        stackView.distribution = .fillProportionally
+        return stackView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: .zero)
         configureInitialSetting()
@@ -92,14 +102,21 @@ extension DeliverMainView {
 extension DeliverMainView {
     private func configureSubviews() {
         
+        [couponAdImageView,
+         categoryButtonStackView
+        
+        ].forEach {
+            containerStackView.addArrangedSubview($0)
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
+        
         [categoryDeliverButton, categoryBMartButton, categoryStoreButton].forEach {
             categoryButtonStackView.addArrangedSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         
         [mainSearchBar,
-         couponAdImageView,
-         categoryButtonStackView
+         containerStackView
         ].forEach {
             addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
@@ -116,17 +133,20 @@ extension DeliverMainView {
             mainSearchBar.centerXAnchor.constraint(equalTo: centerXAnchor),
             mainSearchBar.leadingAnchor.constraint(equalTo: leadingAnchor),
             
+            // MARK: Container StackView Constraints
+            containerStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            containerStackView.topAnchor.constraint(equalTo: mainSearchBar.bottomAnchor, constant: 10),
+            containerStackView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 15),
+            
             // MARK: couponAdImageView Constraints
             couponAdImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.08),
-            couponAdImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            couponAdImageView.topAnchor.constraint(equalTo: mainSearchBar.bottomAnchor, constant: 10),
-            couponAdImageView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 15),
+            couponAdImageView.centerXAnchor.constraint(equalTo: containerStackView.centerXAnchor),
+            couponAdImageView.topAnchor.constraint(equalTo: containerStackView.topAnchor),
+            couponAdImageView.leadingAnchor.constraint(equalTo: containerStackView.leadingAnchor),
             
             // MARK: categoryButtonStackView Constraints
-//            categoryButtonStackView.heightAnchor.constraint(equalToConstant: categoryButtonHeight),
             categoryButtonStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            categoryButtonStackView.topAnchor.constraint(equalTo: couponAdImageView.bottomAnchor, constant: 10),
-            categoryButtonStackView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 15),
+            categoryButtonStackView.leadingAnchor.constraint(equalTo: containerStackView.leadingAnchor),
         ])
     }
 }
