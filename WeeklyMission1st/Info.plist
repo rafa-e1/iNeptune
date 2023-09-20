@@ -19,5 +19,9 @@
 			</array>
 		</dict>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>BMHANNAProOTF.otf</string>
+	</array>
 </dict>
 </plist>
