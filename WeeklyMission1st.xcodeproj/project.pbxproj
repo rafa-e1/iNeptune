@@ -13,6 +13,8 @@
 		564107EA2ABABB0B00E1AB48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 564107E92ABABB0B00E1AB48 /* Assets.xcassets */; };
 		564107ED2ABABB0B00E1AB48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 564107EB2ABABB0B00E1AB48 /* LaunchScreen.storyboard */; };
 		564107F82ABABCBB00E1AB48 /* DeliverMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564107F72ABABCBB00E1AB48 /* DeliverMainView.swift */; };
+		564107FA2ABAE8BB00E1AB48 /* BorderGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564107F92ABAE8BB00E1AB48 /* BorderGradient.swift */; };
+		564107FC2ABAEF0400E1AB48 /* MainCategoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564107FB2ABAEF0400E1AB48 /* MainCategoryButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		564107EC2ABABB0B00E1AB48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		564107EE2ABABB0B00E1AB48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		564107F72ABABCBB00E1AB48 /* DeliverMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliverMainView.swift; sourceTree = "<group>"; };
+		564107F92ABAE8BB00E1AB48 /* BorderGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderGradient.swift; sourceTree = "<group>"; };
+		564107FB2ABAEF0400E1AB48 /* MainCategoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoryButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 		564107DF2ABABB0A00E1AB48 /* WeeklyMission1st */ = {
 			isa = PBXGroup;
 			children = (
+				564107F92ABAE8BB00E1AB48 /* BorderGradient.swift */,
 				564107F62ABABC5600E1AB48 /* Models */,
 				564107F52ABABC5200E1AB48 /* Views */,
 				564107F42ABABC4800E1AB48 /* Controllers */,
@@ -80,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				564107F72ABABCBB00E1AB48 /* DeliverMainView.swift */,
+				564107FB2ABAEF0400E1AB48 /* MainCategoryButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -163,7 +169,9 @@
 			files = (
 				564107E52ABABB0A00E1AB48 /* DeliverMainViewController.swift in Sources */,
 				564107E12ABABB0A00E1AB48 /* AppDelegate.swift in Sources */,
+				564107FC2ABAEF0400E1AB48 /* MainCategoryButton.swift in Sources */,
 				564107E32ABABB0A00E1AB48 /* SceneDelegate.swift in Sources */,
+				564107FA2ABAE8BB00E1AB48 /* BorderGradient.swift in Sources */,
 				564107F82ABABCBB00E1AB48 /* DeliverMainView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

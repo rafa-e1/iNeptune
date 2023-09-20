@@ -18,7 +18,8 @@ final class DeliverMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+}
 
-
+extension DeliverMainViewController {
 }
 
