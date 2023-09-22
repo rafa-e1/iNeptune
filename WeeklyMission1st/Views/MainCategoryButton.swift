@@ -12,7 +12,8 @@ final class MainCategoryButton: UIButton {
     init(buttonImage: String) {
         super.init(frame: .zero)
         setImage(UIImage(named: buttonImage), for: .normal)
-        backgroundColor = .blue
+        imageView?.contentMode = .scaleAspectFit
+        configureLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -20,10 +21,13 @@ final class MainCategoryButton: UIButton {
     }
     
     override func layoutSubviews() {
+        super.layoutSubviews()
         self.clipsToBounds = true
         self.layer.cornerRadius = self.frame.height / 11.333
     }
 }
+
+// MARK: Configure Layout
 
 extension MainCategoryButton {
     
