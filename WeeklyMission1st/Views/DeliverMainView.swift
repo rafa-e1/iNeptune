@@ -16,7 +16,7 @@ final class DeliverMainView: UIScrollView {
         return searchBar
     }()
     
-    private let couponAdImageView: UIImageView = {
+    private let couponADImageView: UIImageView = {
        let imageView = UIImageView()
         imageView.image = UIImage(named: "AD")
         imageView.contentMode = .scaleAspectFit
@@ -154,7 +154,13 @@ final class DeliverMainView: UIScrollView {
         return stackView
     }()
     
-    private var testButton = BaeminOneMenuButton(buttonImage: "CupCake", buttonTitle: "CupCake")
+    private let bannerADImageView: UIImageView = {
+       let imageView = UIImageView()
+        imageView.image = UIImage(named: "AD")
+        imageView.contentMode = .scaleAspectFit
+        imageView.backgroundColor = .white
+        return imageView
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -175,13 +181,16 @@ final class DeliverMainView: UIScrollView {
         // 30: stackViewLeading/trailingAnchorConstant, 20: stackViewSpacing
         let categoryButtonHeight = CGFloat((viewWidth - 30 - 20) / 3)
         
-        couponAdImageView.clipsToBounds = true
-        couponAdImageView.layer.cornerRadius = couponAdImageView.frame.height / 8
+        couponADImageView.clipsToBounds = true
+        couponADImageView.layer.cornerRadius = couponADImageView.frame.height / 8
 
         categoryButtonStackView.heightAnchor.constraint(equalToConstant: categoryButtonHeight).isActive = true
         
         baeminOneContainerView.clipsToBounds = true
         baeminOneContainerView.layer.cornerRadius = baeminOneContainerView.frame.height / 15
+        
+        bannerADImageView.clipsToBounds = true
+        bannerADImageView.layer.cornerRadius = bannerADImageView.frame.height / 10
     }
 }
 
@@ -198,10 +207,10 @@ extension DeliverMainView {
 extension DeliverMainView {
     private func configureSubviews() {
         
-        [couponAdImageView,
+        [couponADImageView,
          categoryButtonStackView,
          baeminOneContainerView,
-         
+         bannerADImageView
         ].forEach {
             containerStackView.addArrangedSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
@@ -275,23 +284,17 @@ extension DeliverMainView {
             
             // MARK: couponAdImageView Constraints
             
-            couponAdImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.08),
-            couponAdImageView.centerXAnchor.constraint(equalTo: containerStackView.centerXAnchor),
-            couponAdImageView.topAnchor.constraint(equalTo: containerStackView.topAnchor),
-            couponAdImageView.leadingAnchor.constraint(equalTo: containerStackView.leadingAnchor),
+            couponADImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.08),
+            couponADImageView.centerXAnchor.constraint(equalTo: containerStackView.centerXAnchor),
+            couponADImageView.topAnchor.constraint(equalTo: containerStackView.topAnchor),
+            couponADImageView.leadingAnchor.constraint(equalTo: containerStackView.leadingAnchor),
             
             // MARK: categoryButtonStackView Constraints
             
-            categoryButtonStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            categoryButtonStackView.centerXAnchor.constraint(equalTo: containerStackView.centerXAnchor),
             categoryButtonStackView.leadingAnchor.constraint(equalTo: containerStackView.leadingAnchor),
             
-            // MARK: savingOrOnlyDeliveryContainerView Constraints
-            
-            baeminOneContainerView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            baeminOneContainerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.25),
-            baeminOneContainerView.leadingAnchor.constraint(equalTo: containerStackView.leadingAnchor),
-            
-            // MARK: savingOrOnlyDeliveryLabel Constraints
+            // MARK: baeminOneLabelStackView Constraints
             
             baeminOneLabelStackView
                 .topAnchor.constraint(
@@ -321,6 +324,18 @@ extension DeliverMainView {
             baeminOneButtonStackView.topAnchor.constraint(equalTo: baeminOneLabelStackView.bottomAnchor),
             baeminOneButtonStackView.bottomAnchor.constraint(equalTo: baeminOneContainerView.bottomAnchor, constant: -5),
             baeminOneButtonStackView.leadingAnchor.constraint(equalTo: baeminOneContainerView.leadingAnchor, constant: 15),
+            
+            // MARK: baeminOneContainerView Constraints
+            
+            baeminOneContainerView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            baeminOneContainerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.25),
+            baeminOneContainerView.leadingAnchor.constraint(equalTo: containerStackView.leadingAnchor),
+            
+            // MARK: bannerADImageView Constraints
+            
+            bannerADImageView.centerXAnchor.constraint(equalTo: containerStackView.centerXAnchor),
+            bannerADImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.15),
+            bannerADImageView.leadingAnchor.constraint(equalTo: containerStackView.leadingAnchor),
         ])
     }
 }
