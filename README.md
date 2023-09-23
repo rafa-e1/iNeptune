@@ -42,9 +42,6 @@
 - [8주차](#8주차)
 - [9주차](#9주차)
 - [10주차](#10주차)
-
-<br>
-
 - [Swift Style Guide](#Swift-Style-Guide)
 
 <br>
