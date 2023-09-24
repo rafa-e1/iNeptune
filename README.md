@@ -43,7 +43,7 @@
 - [9주차](#9주차)
 - [10주차](#10주차)
 
-- ### [Swift Style Guide](#Swift-Style-Guide)
+### [Swift Style Guide](#Swift-Style-Guide)
   - [Code Formatting](#Code-Formatting)
     - [import](#import)
     - [들여쓰기 및 띄어쓰기](#들여쓰기-및-띄어쓰기)
@@ -61,7 +61,7 @@
     - [클로저](#클로저)
     - [클래스와 구조체](#클래스와-구조체)
     - [타입](#타입)
-    - [타입추론 사용](#타입추론 사용)
+    - [타입추론 사용](#타입추론-사용)
     - [self](#self)
     - [튜플](#튜플)
     - [final](#final)
@@ -82,12 +82,20 @@
 
 <br>
 
+[목차로 이동 🔺](#목차)
+
+<br>
+
 # 2주차
 - 위클리 미션 실행화면 영상 업로드
 - 스터디 미션 실행화면 영상 업로드
 
 ### 회고록
 - 회고록 작성
+
+<br>
+
+[목차로 이동 🔺](#목차)
 
 <br>
 
@@ -100,12 +108,20 @@
 
 <br>
 
+[목차로 이동 🔺](#목차)
+
+<br>
+
 # 4주차
 - 위클리 미션 실행화면 영상 업로드
 - 스터디 미션 실행화면 영상 업로드
 
 ### 회고록
 - 회고록 작성
+
+<br>
+
+[목차로 이동 🔺](#목차)
 
 <br>
 
@@ -118,12 +134,20 @@
 
 <br>
 
+[목차로 이동 🔺](#목차)
+
+<br>
+
 # 6주차
 - 위클리 미션 실행화면 영상 업로드
 - 스터디 미션 실행화면 영상 업로드
 
 ### 회고록
 - 회고록 작성
+
+<br>
+
+[목차로 이동 🔺](#목차)
 
 <br>
 
@@ -136,12 +160,20 @@
 
 <br>
 
+[목차로 이동 🔺](#목차)
+
+<br>
+
 # 8주차
 - 위클리 미션 실행화면 영상 업로드
 - 스터디 미션 실행화면 영상 업로드
 
 ### 회고록
 - 회고록 작성
+
+<br>
+
+[목차로 이동 🔺](#목차)
 
 <br>
 
@@ -154,12 +186,20 @@
 
 <br>
 
+[목차로 이동 🔺](#목차)
+
+<br>
+
 # 10주차
 - 위클리 미션 실행화면 영상 업로드
 - 스터디 미션 실행화면 영상 업로드
 
 ### 회고록
 - 회고록 작성
+
+<br>
+
+[목차로 이동 🔺](#목차)
 
 <br>
 
@@ -228,9 +268,9 @@ var deviceModels: [String]
 
 <br>
 
----
+[목차로 이동 🔺](#목차)
 
-<br>
+---
 
 ### [ 들여쓰기 및 띄어쓰기 ]
 > 탭을 눌렀을 때 4개의 space를 사용합니다.
@@ -403,9 +443,9 @@ let squares = userCounts.map() { $0 * $0 }
 
 <br>
 
----
+[목차로 이동 🔺](#목차)
 
-<br>
+---
 
 ### [ 줄바꿈 ]
 > 클래스 블럭과 클래스 내부 코드 사이는 공백으로 구분합니다.
@@ -539,9 +579,9 @@ guard let user = self.veryLongFunctionNameWhichReturnsOptionalUser(), let name =
 
 <br>
 
----
+[목차로 이동 🔺](#목차)
 
-<br>
+---
 
 ### [ 최대 줄 길이 ]
 > 한 줄은 최대 99자를 넘지 않아야 합니다.
@@ -550,6 +590,10 @@ guard let user = self.veryLongFunctionNameWhichReturnsOptionalUser(), let name =
 ![enter image description here](https://file.notion.so/f/f/f1912130-0409-4e90-a90f-6091ae253e73/9293c121-e0cc-40c2-9079-21cba8611c87/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-09-21_10.03.53.png?id=fe049281-220c-4d7a-865b-415400f400e3&table=block&spaceId=f1912130-0409-4e90-a90f-6091ae253e73&expirationTimestamp=1695578400000&signature=LqAa_BXiCJE3kOQcpb9dfUYZFX29AcQx3qfrAfuJOOk&downloadName=%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-09-21%2010.03.53.png)
 
 <br>
+
+[목차로 이동 🔺](#목차)
+
+---
 
 ##  Naming
 
@@ -580,9 +624,9 @@ struct someStructure {
 
 <br>
 
----
+[목차로 이동 🔺](#목차)
 
-<br>
+---
 
 ### [ 함수 ]
 > 함수 이름에는 lowerCamelCase를 사용합니다.
@@ -639,9 +683,9 @@ func pressBack() {
 
 <br>
 
----
+[목차로 이동 🔺](#목차)
 
-<br>
+---
 
 ### [ 변수와 상수 ]
 > 변수와 상수 이름에는 lowerCamelCase를 사용합니다.
@@ -659,9 +703,9 @@ let MAX_LINES = 3
 
 <br>
 
----
+[목차로 이동 🔺](#목차)
 
-<br>
+---
 
 ### [ 열거형 ]
 > enum의 이름에는 UpperCamelCase를 사용하고 enum의 각 case에는 lowerCamelCase를 사용합니다.
@@ -689,9 +733,9 @@ enum result {
 
 <br>
 
----
+[목차로 이동 🔺](#목차)
 
-<br>
+---
 
 ### [ 프로토콜 ]
 > 프로토콜의 이름에는 UpperCamelCase를 사용합니다. 
@@ -738,9 +782,9 @@ extension UIViewController:SomeProtocol, AnotherProtocol {
 
 <br>
 
----
+[목차로 이동 🔺](#목차)
 
-<br>
+---
 
 ### [ 약어 ]
 > 약어로 시작하는 경우 소문자로 표기하고, 그 외의 경우에는 항상 대문자로 표기합니다.
@@ -763,9 +807,9 @@ let URLString: String?
 
 <br>
 
----
+[목차로 이동 🔺](#목차)
 
-<br>
+---
 
 ### [ 일반 ]
 > 일반적인 부분이 앞에두고 구체적인 부분을 뒤에 둡니다.
@@ -803,6 +847,10 @@ let cancel: UIButton
 ```
 
 <br>
+
+[목차로 이동 🔺](#목차)
+
+---
 
 ##  Code Style
 
@@ -908,9 +956,9 @@ let evenSquares = numbers.filter {$0 % 2 == 0}.map { $0 * $0 }
 
 <br>
 
----
+[목차로 이동 🔺](#목차)
 
-<br>
+---
 
 ### [ 클래스와 구조체 ]
 > 구조체를 생성할 때는 Swift 구조체 생성자를 사용합니다.
@@ -927,9 +975,9 @@ let frame = CGRectMake(0, 0, 100, 100)
 
 <br>
 
----
+[목차로 이동 🔺](#목차)
 
-<br>
+---
 
 ### [ 타입 ]
 > Array<T>와, Dictionary<T: U> 보다는 [T], [T: U]를 사용합니다.
@@ -948,9 +996,9 @@ var names: Dictionary<Int, String>?
 
 <br>
 
----
+[목차로 이동 🔺](#목차)
 
-<br>
+---
 
 ### [ 타입추론 사용 ]
 > 컴파일러가 문맥속에서 타입을 추론할 수 있으면 더 간결한 코드를 위해 타입을 생략합니다.
@@ -973,9 +1021,9 @@ let view = UIView(frame: CGRect.zero)
 
 <br>
 
----
+[목차로 이동 🔺](#목차)
 
-<br>
+---
 
 ### [ self ]
 > 문법의 모호함을 제거하기 위해 언어에서 필수로 요구하지 않는 이상 self는 사용하지 않습니다.
@@ -1026,9 +1074,9 @@ final class Listing {
 
 <br>
 
----
+[목차로 이동 🔺](#목차)
 
-<br>
+---
 
 ### [ 튜플 ]
 > 튜플의 맴버에는 명확성을 위해 이름을 붙여줍니다. 
@@ -1050,9 +1098,9 @@ func whatever() -> (Int, Int) {
 
 <br>
 
----
+[목차로 이동 🔺](#목차)
 
-<br>
+---
 
 ### [ final ]
 > 더 이상 상속이 발생하지 않는 클래스는 항상 final 키워드로 선언합니다.
@@ -1073,9 +1121,9 @@ class ViewController: UIViewController {
 
 <br>
 
----
+[목차로 이동 🔺](#목차)
 
-<br>
+---
 
 ### [ 프로토콜 extension ]
 > 프로토콜을 적용할 때는 extension을 만들어서 관련된 매소드를 모아둡니다.
@@ -1118,9 +1166,9 @@ let cancel: UIButton
 
 <br>
 
----
+[목차로 이동 🔺](#목차)
 
-<br>
+---
 
 ### [ 사용하지 않는 코드 ]
 > Xcode가 자동으로 생성한 템플릿을 포함한 사용하지 않는 코드는 placeholder 코멘트를 포함해 모두 제거합니다.
@@ -1147,9 +1195,9 @@ override func tableView(_ tableView: UITableView, numberOfRowsInSection section:
 
 <br>
 
----
+[목차로 이동 🔺](#목차)
 
-<br>
+---
 
 ### [ 주석 ]
 > ///를 사용해서 문서화에 사용되는 주석을 남깁니다.
