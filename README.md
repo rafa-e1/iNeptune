@@ -45,30 +45,9 @@
 
 ### Code Convention
 - [Swift Style Guide](#Swift-Style-Guide)
-- [Code Formatting](##Code-Formatting)
-  - [import](###import)
-  - [들여쓰기 및 띄어쓰기](#들여쓰기-및-띄어쓰기)
-  - [줄바꿈](#줄바꿈)
-  - [최대 줄 길이](#최대-줄-길이)
-- [Naming](#Naming)
-  - [클래스와 구조체](#클래스와-구조체)
-  - [함수](#함수)
-  - [변수와 상수](#변수와-상수)
-  - [열거형](#열거형)
-  - [프로토콜](#프로토콜)
-  - [약어](#약어)
-  - [일반](#일반)
-- [Code Style](#Code-Style)
-  - [클로저](#클로저)
-  - [클래스와 구조체](#클래스와-구조체)
-  - [타입](#타입)
-  - [타입추론 사용](#타입추론-사용)
-  - [self](#self)
-  - [튜플](#튜플)
-  - [final](#final)
-  - [프로토콜 extension](#프로토콜-extension)
-  - [사용하지 않는 코드](#사용하지-않는-코드)
-  - [주석](#주석)
+  - [Code Formatting](#Code-Formatting)
+  - [Naming](#Naming)
+  - [Code Style](#Code-Style)
 
 <br>
 
