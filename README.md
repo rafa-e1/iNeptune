@@ -552,3 +552,652 @@ struct someStructure {
     // structure definition goes here
 }
 ```
+
+<br>
+
+---
+
+<br>
+
+### [ 함수 ]
+> 함수 이름에는 lowerCamelCase를 사용합니다.
+
+**✔️ Preferred**
+```swift
+func doSomething(a: String) -> String?
+```
+
+**❌ Not Preferred**
+```swift
+func DoSomething(b: String) -> String?
+```
+
+<br>
+
+> 함수 이름에는 되도록  `get`을 붙이지 않습니다.
+
+**✔️ Preferred**
+```swift
+func name(for user: User) -> String?
+```
+
+**❌ Not Preferred**
+```swift
+func getName(for user: User) -> String?
+```
+
+<br>
+
+> ‘Tap(눌렀다 뗌)’은 UIControlEvents의 .touchUpInside에 대응하고, ‘Press(누름)’는 .touchDown에 대응합니다. 
+> ’will’은 특정 행위가 일어나기 직전이고, ’did’는 특정 행위가 일어난 직후입니다. 
+> ’should’는 일반적으로 Bool을 반환하는 함수에 사용됩니다.
+>
+> Action 함수의 네이밍은 '주어 + 동사 + 목적어' 형태를 사용합니다.
+
+**✔️ Preferred**
+```swift
+func backButtonDidTap() {
+    // ...
+}
+```
+
+**❌ Not Preferred**
+```swift
+func back() {
+    // ...
+}
+
+func pressBack() {
+    // ...
+}
+```
+
+<br>
+
+---
+
+<br>
+
+### [ 변수와 상수 ]
+> 변수와 상수 이름에는 lowerCamelCase를 사용합니다.
+
+**✔️ Preferred**
+```swift
+let maximumNumberOfLines = 3
+```
+
+**❌ Not Preferred**
+```swift
+let MaximumNumberOfLines = 3
+let MAX_LINES = 3
+```
+
+<br>
+
+---
+
+<br>
+
+### [ 열거형 ]
+> enum의 이름에는 UpperCamelCase를 사용하고 enum의 각 case에는 lowerCamelCase를 사용합니다.
+
+**✔️ Preferred**
+```swift
+enum Result {
+    case .success
+    case .failure
+}
+```
+
+**❌ Not Preferred**
+```swift
+enum Result {
+    case .Success
+    case .Failure
+}
+
+enum result {
+    case .Success
+    case .Failure
+}
+```
+
+<br>
+
+---
+
+<br>
+
+### [ 프로토콜 ]
+> 프로토콜의 이름에는 UpperCamelCase를 사용합니다. 
+> 구조체나 클래스에서 프로토콜을 채택할 때는 콜론과 빈칸을 넣어 구분하여 명시합니다. 
+> extension을 통해 채택할 때도 동일하게 적용됩니다.
+
+**✔️ Preferred**
+```swift
+protocol SomeProtocol {
+    // protocol definition goes here
+}
+
+struct SomeStructure: SomeProtocol, AnotherProtocol {
+    // structure definition goes here
+}
+
+class SomeClass: SomeSuperclass, SomeProtocol, AnotherProtocol {
+    // class definition goes here
+}
+
+extension UIViewController: SomeProtocol, AnotherProtocol {
+    // doSomething()
+}
+```
+
+**❌ Not Preferred**
+```swift
+protocol someProtocol {
+    // protocol definition goes here
+}
+
+struct some_Structure:SomeProtocol, AnotherProtocol {
+    // structure definition goes here
+}
+
+class Some_Class:SomeSuperclass, SomeProtocol, AnotherProtocol {
+    // class definition goes here
+}
+
+extension UIViewController:SomeProtocol, AnotherProtocol {
+    // doSomething()
+}
+```
+
+<br>
+
+---
+
+<br>
+
+### [ 약어 ]
+> 약어로 시작하는 경우 소문자로 표기하고, 그 외의 경우에는 항상 대문자로 표기합니다.
+
+**✔️ Preferred**
+```swift
+let userID: Int?
+let html: String?
+let websiteURL: URL?
+let urlString: String?
+```
+
+**❌ Not Preferred**
+```swift
+let userId: Int?
+let HTML: String?
+let websiteUrl: NSURL?
+let URLString: String?
+```
+
+<br>
+
+---
+
+<br>
+
+### [ 일반 ]
+> 일반적인 부분이 앞에두고 구체적인 부분을 뒤에 둡니다.
+
+**✔️ Preferred**
+```swift
+let titleMarginRight: CGFloat
+let titleMarginLeft: CGFloat
+let bodyMarginRight: CGFloat
+let bodyMarginLeft: CGFloat
+```
+
+**❌ Not Preferred**
+```swift
+let rightTitleMargin: CGFloat
+let leftTitleMargin: CGFloat
+let bodyRightMargin: CGFloat
+let bodyLeftMargin: CGFloat
+```
+
+<br>
+
+> 생략시 사용이 모호해지는 타입은 이름에 타입에 대한 힌트를 포함시킵니다.
+
+**✔️ Preferred**
+```swift
+let titleText: String
+let cancelButton: UIButton
+```
+
+**❌ Not Preferred**
+```swift
+let title: String
+let cancel: UIButton
+```
+
+<br>
+
+##  Code Style
+
+### [ 클로저 ]
+> 파라미터와 리턴 타입이 없는 클로저 정의시에는 () -> Void 를 사용합니다.
+
+**✔️ Preferred**
+```swift
+let completionBlock: (() -> Void)?
+```
+
+**❌ Not Preferred**
+```swift
+let completionBlock: (() -> ())?
+let completionBlock: ((Void) -> (Void))?
+```
+
+<br>
+
+> 클로저 정의시 파라미터에는 괄호를 사용하지 않습니다.
+
+**✔️ Preferred**
+```swift
+{ operation, responseObject in
+    // doSomething()
+}
+```
+
+**❌ Not Preferred**
+```swift
+{ (operation, responseObject) in
+    // doSomething()
+}
+```
+
+<br>
+
+> 클로저 정의시 가능한 경우 타입 정의를 생략합니다.
+
+**✔️ Preferred**
+```swift
+completion: { finished in
+    // doSomething()
+}
+```
+
+**❌ Not Preferred**
+```swift
+completion: { (finished: Bool) -> Void in
+    // doSomething()
+}
+```
+
+<br>
+
+> 클로저 호출시 또 다른 유일한 클로저를 마지막 파라미터로 받는 경우, 파라미터 이름을 생략합니다.
+
+**✔️ Preferred**
+```swift
+UIView.animate(withDuration: 0.5) {
+    // doSomething()
+}
+```
+
+**❌ Not Preferred**
+```swift
+UIView.animate(withDuration: 0.5, animations: { () -> Void in
+    // doSomething()
+})
+```
+
+<br>
+
+> 사용하지 않는 파라미터는 _를 사용해 표시합니다.
+
+**✔️ Preferred**
+```swift
+someAsyncThing() { _, _, argument3 in
+    print(argument3)
+}
+```
+
+**❌ Not Preferred**
+```swift
+someAsyncThing() { argument1, argument2, argument3 in
+    print(argument3)
+}
+```
+
+<br>
+
+> 한 줄 클로저는 반드시 각 괄호 양쪽을 공백을 추가해야 합니다.
+
+**✔️ Preferred**
+```swift
+let evenSquares = numbers.filter { $0 % 2 == 0 }.map { $0 * $0 }
+```
+
+**❌ Not Preferred**
+```swift
+let evenSquares = numbers.filter {$0 % 2 == 0}.map { $0 * $0 }
+```
+
+<br>
+
+---
+
+<br>
+
+### [ 클래스와 구조체 ]
+> 구조체를 생성할 때는 Swift 구조체 생성자를 사용합니다.
+
+**✔️ Preferred**
+```swift
+let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+```
+
+**❌ Not Preferred**
+```swift
+let frame = CGRectMake(0, 0, 100, 100)
+```
+
+<br>
+
+---
+
+<br>
+
+### [ 타입 ]
+> Array<T>와, Dictionary<T: U> 보다는 [T], [T: U]를 사용합니다.
+
+**✔️ Preferred**
+```swift
+var messages: [String]?
+var names: [Int: String]?
+```
+
+**❌ Not Preferred**
+```swift
+var messages: Array<String>?
+var names: Dictionary<Int, String>?
+```
+
+<br>
+
+---
+
+<br>
+
+### [ 타입추론 사용 ]
+> 컴파일러가 문맥속에서 타입을 추론할 수 있으면 더 간결한 코드를 위해 타입을 생략합니다.
+
+**✔️ Preferred**
+```swift
+let selector = #selector(viewDidLoad)
+view.backgroundColor = .red
+let toView = context.view(forKey: .to)
+let view = UIView(frame: .zero)
+```
+
+**❌ Not Preferred**
+```swift
+let selector = #selector(ViewController.viewDidLoad)
+view.backgroundColor = UIColor.red
+let toView = context.view(forKey: UITransitionContextViewKey.to)
+let view = UIView(frame: CGRect.zero)
+```
+
+<br>
+
+---
+
+<br>
+
+### [ self ]
+> 문법의 모호함을 제거하기 위해 언어에서 필수로 요구하지 않는 이상 self는 사용하지 않습니다.
+
+**✔️ Preferred**
+```swift
+final class Listing {
+    private let isFamilyFriendly: Bool
+    private var capacity: Int
+  
+    init(capacity: Int, allowsPets: Bool) {
+        ✅ Preferred 
+        self.capacity = capacity
+        isFamilyFriendly = !allowsPets
+    }
+
+    private func increaseCapacity(by amount: Int) {
+        ✅ Preferred 
+        capacity += amount
+
+        ✅ Preferred 
+        save()
+    }
+}
+```
+
+**❌ Not Preferred**
+```swift
+final class Listing {
+    private let isFamilyFriendly: Bool
+    private var capacity: Int
+  
+    init(capacity: Int, allowsPets: Bool) {
+        ⛔️ Not Preferred 
+        self.capacity = capacity
+        self.isFamilyFriendly = !allowsPets
+    }
+
+    private func increaseCapacity(by amount: Int) {
+        ⛔️ Not Preferred 
+        self.capacity += amount
+
+        ⛔️ Not Preferred 
+        self.save()
+  }
+}
+```
+
+<br>
+
+---
+
+<br>
+
+### [ 튜플 ]
+> 튜플의 맴버에는 명확성을 위해 이름을 붙여줍니다. 
+> (만약 필드가 3개를 넘는 경우 struct를 사용을 고려해보는 것을 권장합니다.)
+
+**✔️ Preferred**
+```swift
+func whatever() -> (x: Int, y: Int) {
+    return (x: 4, y: 4)
+}
+```
+
+**❌ Not Preferred**
+```swift
+func whatever() -> (Int, Int) {
+    return (4, 4)
+}
+```
+
+<br>
+
+---
+
+<br>
+
+### [ final ]
+> 더 이상 상속이 발생하지 않는 클래스는 항상 final 키워드로 선언합니다.
+
+**✔️ Preferred**
+```swift
+final class ViewController: UIViewController {
+    // ...
+}
+```
+
+**❌ Not Preferred**
+```swift
+class ViewController: UIViewController {
+    // ...
+}
+```
+
+<br>
+
+---
+
+<br>
+
+### [ 프로토콜 extension ]
+> 프로토콜을 적용할 때는 extension을 만들어서 관련된 매소드를 모아둡니다.
+
+**✔️ Preferred**
+```swift
+final class MyViewController: UIViewController {
+    // ...
+}
+extension MyViewController: UITableViewDataSource {
+    // ...
+}
+extension MyViewController: UITableViewDelegate {
+    // ...
+}
+```
+
+**❌ Not Preferred**
+```swift
+final class MyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    // ...
+}
+```
+
+<br>
+
+> 생략시 사용이 모호해지는 타입은 이름에 타입에 대한 힌트를 포함시킵니다.
+
+**✔️ Preferred**
+```swift
+let titleText: String
+let cancelButton: UIButton
+```
+
+**❌ Not Preferred**
+```swift
+let title: String
+let cancel: UIButton
+```
+
+<br>
+
+---
+
+<br>
+
+### [ 사용하지 않는 코드 ]
+> Xcode가 자동으로 생성한 템플릿을 포함한 사용하지 않는 코드는 placeholder 코멘트를 포함해 모두 제거합니다.
+
+**✔️ Preferred**
+```swift
+override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return Database.contacts.count
+}
+```
+
+**❌ Not Preferred**
+```swift
+override func didReceiveMemoryWarning() {
+  super.didReceiveMemoryWarning()
+  // Dispose of any resources that can be recreated.
+}
+
+override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  // #warning Incomplete implementation, return the number of rows
+  return Database.contacts.count
+}
+```
+
+<br>
+
+---
+
+<br>
+
+### [ 주석 ]
+> ///를 사용해서 문서화에 사용되는 주석을 남깁니다.
+
+**✔️ Preferred**
+```swift
+/// 사용자 프로필을 그려주는 뷰
+class ProfileView: UIView {
+
+    /// 사용자 닉네임을 그려주는 라벨
+    var nameLabel: UILabel!
+}
+```
+
+**❌ Not Preferred**
+```swift
+// 사용자 프로필을 그려주는 뷰
+class ProfileView: UIView {
+
+    // 사용자 닉네임을 그려주는 라벨
+    var nameLabel: UILabel!
+}
+```
+
+<br>
+
+> // MARK:를 사용해서 연관된 코드를 구분짓습니다. (MARK 구문 위와 아래에는 공백이 필요합니다.)
+
+**✔️ Preferred**
+```swift
+// MARK: Init
+
+override init(frame: CGRect) {
+    // doSomething()
+}
+
+deinit {
+    // doSomething()
+}
+
+
+// MARK: Layout
+
+override func layoutSubviews() {
+    // doSomething()
+}
+
+
+// MARK: Actions
+
+override func menuButtonDidTap() {
+    // doSomething()
+}
+```
+
+**❌ Not Preferred**
+```swift
+// MARK: Init
+override init(frame: CGRect) {
+    // doSomething()
+}
+
+deinit {
+    // doSomething()
+}
+
+// MARK: Layout
+override func layoutSubviews() {
+    // doSomething()
+}
+
+// MARK: Actions
+override func menuButtonDidTap() {
+    // doSomething()
+}
+```
