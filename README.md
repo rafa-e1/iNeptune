@@ -45,8 +45,8 @@
 
 ### Code Convention
 - [Swift Style Guide](#Swift-Style-Guide)
-- [Code Formatting](#Code-Formatting)
-  - [import](#import)
+- [Code Formatting](##Code-Formatting)
+  - [import](###import)
   - [들여쓰기 및 띄어쓰기](#들여쓰기-및-띄어쓰기)
   - [줄바꿈](#줄바꿈)
   - [최대 줄 길이](#최대-줄-길이)
