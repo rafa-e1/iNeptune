@@ -49,8 +49,6 @@
   - [Naming](#Naming)
   - [Code Style](#Code-Style)
 
-<br>
-
 ---
 
 # 1주차
