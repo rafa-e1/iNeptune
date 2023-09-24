@@ -42,7 +42,8 @@
 - [8주차](#8주차)
 - [9주차](#9주차)
 - [10주차](#10주차)
-- [Swift Style Guide](#Swift-Style-Guide)
+
+- ### [Swift Style Guide](#Swift-Style-Guide)
   - [Code Formatting](#Code-Formatting)
     - [import](#import)
     - [들여쓰기 및 띄어쓰기](#들여쓰기-및-띄어쓰기)
