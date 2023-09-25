@@ -43,6 +43,9 @@ extension BaeminOneMenuButton {
         config.imagePadding = 5
         config.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
         configuration = config
+        
+//        이거 설정 어케함?
+//        titleLabel?.adjustsFontSizeToFitWidth = true
     }
 }
 

@@ -17,6 +17,8 @@
 		564107FC2ABAEF0400E1AB48 /* MainCategoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564107FB2ABAEF0400E1AB48 /* MainCategoryButton.swift */; };
 		564108002ABB068100E1AB48 /* BMHANNAProOTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = 564107FF2ABB068100E1AB48 /* BMHANNAProOTF.otf */; };
 		564108022ABBF93A00E1AB48 /* BaeminOneMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564108012ABBF93A00E1AB48 /* BaeminOneMenuButton.swift */; };
+		56F99D902AC02AE3004BC7DD /* NextPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F99D8F2AC02AE3004BC7DD /* NextPageViewController.swift */; };
+		56F99D922AC02CBA004BC7DD /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F99D912AC02CBA004BC7DD /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		564107FB2ABAEF0400E1AB48 /* MainCategoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoryButton.swift; sourceTree = "<group>"; };
 		564107FF2ABB068100E1AB48 /* BMHANNAProOTF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMHANNAProOTF.otf; sourceTree = "<group>"; };
 		564108012ABBF93A00E1AB48 /* BaeminOneMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaeminOneMenuButton.swift; sourceTree = "<group>"; };
+		56F99D8F2AC02AE3004BC7DD /* NextPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextPageViewController.swift; sourceTree = "<group>"; };
+		56F99D912AC02CBA004BC7DD /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				564107E42ABABB0A00E1AB48 /* DeliverMainViewController.swift */,
+				56F99D8F2AC02AE3004BC7DD /* NextPageViewController.swift */,
+				56F99D912AC02CBA004BC7DD /* TabBarController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -184,6 +190,8 @@
 			files = (
 				564108022ABBF93A00E1AB48 /* BaeminOneMenuButton.swift in Sources */,
 				564107E52ABABB0A00E1AB48 /* DeliverMainViewController.swift in Sources */,
+				56F99D902AC02AE3004BC7DD /* NextPageViewController.swift in Sources */,
+				56F99D922AC02CBA004BC7DD /* TabBarController.swift in Sources */,
 				564107E12ABABB0A00E1AB48 /* AppDelegate.swift in Sources */,
 				564107FC2ABAEF0400E1AB48 /* MainCategoryButton.swift in Sources */,
 				564107E32ABABB0A00E1AB48 /* SceneDelegate.swift in Sources */,

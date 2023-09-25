@@ -69,6 +69,7 @@ final class DeliverMainView: UIScrollView {
         label.text = "알뜰∙한집배달"
         label.font = UIFont(name: "BMHANNAProOTF", size: 20)
         label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
         label.textColor = .black
         return label
     }()
@@ -78,6 +79,7 @@ final class DeliverMainView: UIScrollView {
         label.text = "배민1"
         label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
         label.textColor = .black
         return label
     }()
@@ -87,6 +89,7 @@ final class DeliverMainView: UIScrollView {
         label.text = "원하는 대로 골라 주문!"
         label.font = UIFont.systemFont(ofSize: 16)
         label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
         label.textColor = .black
         return label
     }()
@@ -328,7 +331,7 @@ extension DeliverMainView {
             // MARK: baeminOneContainerView Constraints
             
             baeminOneContainerView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            baeminOneContainerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.25),
+            baeminOneContainerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.3),
             baeminOneContainerView.leadingAnchor.constraint(equalTo: containerStackView.leadingAnchor),
             
             // MARK: bannerADImageView Constraints
