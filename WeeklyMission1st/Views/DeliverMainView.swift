@@ -12,7 +12,8 @@ final class DeliverMainView: UIScrollView {
     private let mainSearchBar: UISearchBar = {
        let searchBar = UISearchBar()
         searchBar.placeholder = "젤라또 나와라 뚝딱"        // 데이터 받아올 수 있다면?
-        searchBar.barTintColor = #colorLiteral(red: 0.2200241983, green: 0.8307676315, blue: 0.8380222917, alpha: 1)
+        searchBar.backgroundColor = #colorLiteral(red: 0.2200241983, green: 0.8307676315, blue: 0.8380222917, alpha: 1)
+        searchBar.searchTextField.backgroundColor = .white
         return searchBar
     }()
     
