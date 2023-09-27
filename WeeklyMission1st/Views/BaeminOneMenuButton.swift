@@ -22,8 +22,7 @@ final class BaeminOneMenuButton: UIButton {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        clipsToBounds = true
-        layer.cornerRadius = frame.height / 4
+        titleLabel?.adjustsFontSizeToFitWidth = true
     }
 }
 
@@ -33,7 +32,7 @@ extension BaeminOneMenuButton {
     private func configureInitialSetting(buttonImage: String, buttonTitle: String) {
         
         var container = AttributeContainer()
-        container.font = UIFont.systemFont(ofSize: 14)
+        container.font = UIFont.systemFont(ofSize: 13)
         
         var config = UIButton.Configuration.plain()
         config.attributedTitle = AttributedString(buttonTitle, attributes: container)
