@@ -226,7 +226,7 @@
 
 # Swift Style Guide
 레오가 제안한 아이디어로 우리는 스터디 기간 동안 코드 컨벤션을 도입하려고 합니다. 
-이를 위해 쓰이지 않을 것으로 판단되는 부분은 제외하고 아래 두 가지 출처에서 참고한 내용을 통합하여 사용할 것입니다.
+스터디 기간 동안 쓰이지 않을 것으로 판단되는 부분은 제외하고 아래 두 가지 출처에서 참고한 내용을 통합하여 사용할 것입니다.
 
  - [StyleShare](https://github.com/StyleShare/swift-style-guidehttps://github.com/StyleShare/swift-style-guide)
  - [토미의 개발노트](https://jusung.github.io/Swift-Code-Convention/)
