@@ -19,18 +19,21 @@ final class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureInitialSetting()
-        configureTabBarItems()
 //        configureTabBarLayout()
+
+        configureTabBarItems()
+        selectedIndex = 2
+
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        configureTabBarLayout()
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        configureTabBarLayout()
+//    }
+    
     private func configureInitialSetting() {
-        tabBarController?.selectedIndex = 2
         tabBar.isTranslucent = false
-        tabBar.barTintColor = UIColor.white
+        tabBar.barTintColor = UIColor.blue
         tabBar.tintColor = .black
     }
     
@@ -43,19 +46,12 @@ final class TabBarController: UITabBarController {
         let myPageVC = NextPageViewController()
         
         setViewControllers([searchVC, pickVC, baeminMainVC, orderListVC, myPageVC], animated: true)
- 
-        searchVC.title = "검색"
-        pickVC.title = "찜"
-        orderListVC.title = "주문내역"
-        myPageVC.title = "my배민"
-        
-        
-        guard let items = tabBar.items else { return }
-        items[0].image = UIImage(systemName: "magnifyingglass")
-        items[1].image = UIImage(systemName: "heart")
-        items[2].image = UIImage(systemName: "list.clipboard")
-        items[3].image = UIImage(systemName: "list.clipboard")
-        items[4].image = UIImage(systemName: "person")
+
+        searchVC.tabBarItem = UITabBarItem(title: "검색", image: UIImage(systemName: "magnifyingglass"), tag: 0)
+        pickVC.tabBarItem = UITabBarItem(title: "찜", image: UIImage(systemName: "heart"), tag: 1)
+        baeminMainVC.tabBarItem.tag = 2
+        orderListVC.tabBarItem = UITabBarItem(title: "주문내역", image: UIImage(systemName: "list.clipboard"), tag: 3)
+        myPageVC.tabBarItem = UITabBarItem(title: "my배민", image: UIImage(systemName: "person"), tag: 4)
     }
     
     private func configureTabBarLayout() {
@@ -71,6 +67,7 @@ final class TabBarController: UITabBarController {
 extension TabBarController {
     
     @objc private func didTapBaeminMainButton() {
+        
     }
     
     private func configureLayout() {

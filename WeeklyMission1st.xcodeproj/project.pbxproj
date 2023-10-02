@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		560E491F2AC6F57100B860AF /* BaeminOneMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E491E2AC6F57100B860AF /* BaeminOneMenuView.swift */; };
 		564107E12ABABB0A00E1AB48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564107E02ABABB0A00E1AB48 /* AppDelegate.swift */; };
 		564107E32ABABB0A00E1AB48 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564107E22ABABB0A00E1AB48 /* SceneDelegate.swift */; };
 		564107E52ABABB0A00E1AB48 /* DeliverMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564107E42ABABB0A00E1AB48 /* DeliverMainViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		560E491E2AC6F57100B860AF /* BaeminOneMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaeminOneMenuView.swift; sourceTree = "<group>"; };
 		564107DD2ABABB0A00E1AB48 /* WeeklyMission1st.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeeklyMission1st.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		564107E02ABABB0A00E1AB48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		564107E22ABABB0A00E1AB48 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				564107F72ABABCBB00E1AB48 /* DeliverMainView.swift */,
 				564107FB2ABAEF0400E1AB48 /* MainCategoryButton.swift */,
 				564108012ABBF93A00E1AB48 /* BaeminOneMenuButton.swift */,
+				560E491E2AC6F57100B860AF /* BaeminOneMenuView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				564107FC2ABAEF0400E1AB48 /* MainCategoryButton.swift in Sources */,
 				564107E32ABABB0A00E1AB48 /* SceneDelegate.swift in Sources */,
 				564107FA2ABAE8BB00E1AB48 /* BorderGradient.swift in Sources */,
+				560E491F2AC6F57100B860AF /* BaeminOneMenuView.swift in Sources */,
 				564107F82ABABCBB00E1AB48 /* DeliverMainView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,7 +268,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -318,7 +322,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

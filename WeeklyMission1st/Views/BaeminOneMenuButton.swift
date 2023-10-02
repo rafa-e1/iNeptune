@@ -38,6 +38,7 @@ extension BaeminOneMenuButton {
         config.attributedTitle = AttributedString(buttonTitle, attributes: container)
         config.baseForegroundColor = UIColor.black
         config.image = UIImage(named: buttonImage)
+        
         config.imagePlacement = .top
         config.imagePadding = 5
         config.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)

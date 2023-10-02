@@ -10,6 +10,7 @@ import UIKit
 final class DeliverMainViewController: UIViewController {
 
     private let deliverMainView = DeliverMainView()
+    private let baeminOneMenuView = BaeminOneMenuView()
     
     override func loadView() {
         view = deliverMainView
@@ -17,8 +18,11 @@ final class DeliverMainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        deliverMainView.isScrollEnabled = true
+        
         configureNaviBarLayout()
         configureNaviBarItem()
+        configureAddTarget()
     }
 }
 
@@ -64,9 +68,20 @@ extension DeliverMainViewController {
             return button
         }()
         
-        let allServiceButton = self.navigationItem.makeSFSymbolButton(self, action: #selector(didTapAllServiceButton), symbolName: "square.grid.2x2")
-        let notificationCenterButton = self.navigationItem.makeSFSymbolButton(self, action: #selector(didTapAllServiceButton), symbolName: "bell")
-        let cartButton = self.navigationItem.makeSFSymbolButton(self, action: #selector(didTapAllServiceButton), symbolName: "cart")
+        let allServiceButton = self.navigationItem.makeSFSymbolButton(
+            self,
+            action: #selector(didTapAllServiceButton),
+            symbolName: "square.grid.2x2"
+        )
+        let notificationCenterButton = self.navigationItem.makeSFSymbolButton(
+            self,
+            action: #selector(didTapAllServiceButton),
+            symbolName: "bell"
+        )
+        let cartButton = self.navigationItem.makeSFSymbolButton(
+            self,
+            action: #selector(didTapAllServiceButton),
+            symbolName: "cart")
 
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: adressButton)
@@ -74,26 +89,54 @@ extension DeliverMainViewController {
     }
 }
 
+// MARK: Configure AddTarget
 extension DeliverMainViewController {
+    private func configureAddTarget() {
+        deliverMainView.mainSearchButton.addTarget(self, action: #selector(didTapMainSearchButton), for: .touchUpInside)
+        
+        
+        [baeminOneMenuView.baeminOneSavingDeliveryButton,
+         baeminOneMenuView.baeminOneCuttletButton,
+         baeminOneMenuView.baeminOnePizzaButton,
+         baeminOneMenuView.baeminOneChineseButton,
+         baeminOneMenuView.baeminOneChickenButton,
+         baeminOneMenuView.baeminOneBuggerButton,
+         baeminOneMenuView.baeminOneSnackButton,
+         baeminOneMenuView.baeminOneDissertButton,
+         baeminOneMenuView.baeminOnePigFootButton,
+         baeminOneMenuView.baeminOneAllButton].forEach {
+            $0.addTarget(self, action: #selector(didTapBaeminOneCategoryButton), for: .touchUpInside)
+        }
+    }
     
     @objc private func didTapAdressButton() {
         let nextVC = NextPageViewController()
-        present(nextVC, animated: true)
+        navigationController?.pushViewController(nextVC, animated: true)
     }
     
     @objc private func didTapAllServiceButton() {
         let nextVC = NextPageViewController()
-        present(nextVC, animated: true)
+        navigationController?.pushViewController(nextVC, animated: true)
     }
     
     @objc private func didTapNotificationCenterButton() {
         let nextVC = NextPageViewController()
-        present(nextVC, animated: true)
+        navigationController?.pushViewController(nextVC, animated: true)
     }
     
     @objc private func didTapCartButton() {
         let nextVC = NextPageViewController()
+        navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    @objc private func didTapMainSearchButton() {
+        let nextVC = NextPageViewController()
         present(nextVC, animated: true)
+    }
+    
+    @objc private func didTapBaeminOneCategoryButton() {
+        let nextVC = NextPageViewController()
+        navigationController?.pushViewController(nextVC, animated: true)
     }
 }
 

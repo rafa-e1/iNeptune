@@ -8,15 +8,31 @@
 import UIKit
 
 final class DeliverMainView: UIScrollView {
-    
-    private let mainSearchBar: UISearchBar = {
-       let searchBar = UISearchBar()
-        searchBar.placeholder = "젤라또 나와라 뚝딱"        // 데이터 받아올 수 있다면?
-        searchBar.backgroundColor = #colorLiteral(red: 0.2200241983, green: 0.8307676315, blue: 0.8380222917, alpha: 1)
-        searchBar.searchTextField.backgroundColor = .white
-        return searchBar
+
+    lazy var mainSearchButton: UIButton = {
+        var container = AttributeContainer()
+        container.font = UIFont.systemFont(ofSize: 14)
+        
+        var config = UIButton.Configuration.filled()
+        config.attributedTitle = AttributedString("찾는 맛집 이름이 뭐에요?", attributes: container)
+        config.baseForegroundColor = UIColor.systemGray5
+        config.baseBackgroundColor = UIColor.white
+        config.image = UIImage(systemName: "magnifyingglass")
+        config.imagePlacement = .leading
+        config.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 0)
+        
+        
+        let button = UIButton(configuration: config)
+        return button
     }()
     
+    private lazy var mainSearchButtonBackgroundView: UIView = {
+        let view = UIView()
+        view.backgroundColor = #colorLiteral(red: 0, green: 0.9895611405, blue: 1, alpha: 1)
+        view.addSubview(mainSearchButton)
+        return view
+    }()
+
     private let couponADImageView: UIImageView = {
        let imageView = UIImageView()
         imageView.image = UIImage(named: "AD")
@@ -59,94 +75,14 @@ final class DeliverMainView: UIScrollView {
         return stackView
     }()
     
-    private let baeminOneContainerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        return view
-    }()
+    private let baeminOneMenuView = BaeminOneMenuView()
     
-    private let baeminOneMainLabel: UILabel = {
-        let label = UILabel()
-        label.text = "알뜰∙한집배달"
-        label.font = UIFont(name: "BMHANNAProOTF", size: 20)
-        label.textAlignment = .center
-        label.adjustsFontSizeToFitWidth = true
-        label.textColor = .black
-        return label
-    }()
-    
-    private let baeminOneSubLabel: UILabel = {
-        let label = UILabel()
-        label.text = "배민1"
-        label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
-        label.textAlignment = .center
-        label.adjustsFontSizeToFitWidth = true
-        label.textColor = .black
-        return label
-    }()
-    
-    private let baeminOneDescriptionLabel: UILabel = {
-        let label = UILabel()
-        label.text = "원하는 대로 골라 주문!"
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.textAlignment = .center
-        label.adjustsFontSizeToFitWidth = true
-        label.textColor = .black
-        return label
-    }()
-    
-    private let baeminOneLabelStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 8
-        stackView.alignment = .fill
-        stackView.distribution = .fillProportionally
-        return stackView
-    }()
-    
-    private let baeminOneButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.setImage(UIImage(systemName: "chevron.right"), for: .normal)
-        button.tintColor = .black
-        return button
-    }()
-    
-    let baeminOneSavingDeliveryButton = BaeminOneMenuButton(buttonImage: "CupCake", buttonTitle: "알뜰배달")
-    let baeminOneCuttletButton = BaeminOneMenuButton(buttonImage: "CupCake", buttonTitle: "돈까스∙회")
-    let baeminOnePizzaButton = BaeminOneMenuButton(buttonImage: "CupCake", buttonTitle: "피자")
-    let baeminOneChineseButton = BaeminOneMenuButton(buttonImage: "CupCake", buttonTitle: "중식")
-    let baeminOneChickenButton = BaeminOneMenuButton(buttonImage: "CupCake", buttonTitle: "치킨")
-    let baeminOneBuggerButton = BaeminOneMenuButton(buttonImage: "CupCake", buttonTitle: "버거")
-    let baeminOneSnackButton = BaeminOneMenuButton(buttonImage: "CupCake", buttonTitle: "분식")
-    let baeminOneDissertButton = BaeminOneMenuButton(buttonImage: "CupCake", buttonTitle: "디저트")
-    let baeminOnePigFootButton = BaeminOneMenuButton(buttonImage: "CupCake", buttonTitle: "족발∙보쌈")
-    let baeminOneAllButton = BaeminOneMenuButton(buttonImage: "CupCake", buttonTitle: "전체보기")
-    
-    private let baeminOneButtonTopStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 10
-        stackView.alignment = .fill
-        stackView.distribution = .fillEqually
-        return stackView
-    }()
-    
-    private let baeminOneButtonBottomStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 10
-        stackView.alignment = .fill
-        stackView.distribution = .fillEqually
-        return stackView
-    }()
-    
-    private let baeminOneButtonStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = 5
-        stackView.alignment = .fill
-        stackView.distribution = .fillEqually
-        return stackView
+    private let bannerADImageView: UIImageView = {
+       let imageView = UIImageView()
+        imageView.image = UIImage(named: "AD")
+        imageView.contentMode = .scaleAspectFit
+        imageView.backgroundColor = .white
+        return imageView
     }()
     
     private let containerStackView: UIStackView = {
@@ -156,14 +92,6 @@ final class DeliverMainView: UIScrollView {
         stackView.alignment = .center
         stackView.distribution = .fillProportionally
         return stackView
-    }()
-    
-    private let bannerADImageView: UIImageView = {
-       let imageView = UIImageView()
-        imageView.image = UIImage(named: "AD")
-        imageView.contentMode = .scaleAspectFit
-        imageView.backgroundColor = .white
-        return imageView
     }()
     
     override init(frame: CGRect) {
@@ -182,6 +110,9 @@ final class DeliverMainView: UIScrollView {
         
         let viewWidth = Int(self.frame.width)
         
+        mainSearchButtonBackgroundView.clipsToBounds = true
+        mainSearchButtonBackgroundView.layer.cornerRadius = mainSearchButtonBackgroundView.frame.height / 6
+        
         // 30: stackViewLeading/trailingAnchorConstant, 20: stackViewSpacing
         let categoryButtonHeight = CGFloat((viewWidth - 30 - 20) / 3)
         
@@ -189,9 +120,6 @@ final class DeliverMainView: UIScrollView {
         couponADImageView.layer.cornerRadius = couponADImageView.frame.height / 8
 
         categoryButtonStackView.heightAnchor.constraint(equalToConstant: categoryButtonHeight).isActive = true
-        
-        baeminOneContainerView.clipsToBounds = true
-        baeminOneContainerView.layer.cornerRadius = baeminOneContainerView.frame.height / 15
         
         bannerADImageView.clipsToBounds = true
         bannerADImageView.layer.cornerRadius = bannerADImageView.frame.height / 10
@@ -213,7 +141,7 @@ extension DeliverMainView {
         
         [couponADImageView,
          categoryButtonStackView,
-         baeminOneContainerView,
+         baeminOneMenuView,
          bannerADImageView
         ].forEach {
             containerStackView.addArrangedSubview($0)
@@ -225,42 +153,7 @@ extension DeliverMainView {
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         
-        [baeminOneMainLabel, baeminOneSubLabel, baeminOneDescriptionLabel].forEach {
-            baeminOneLabelStackView.addArrangedSubview($0)
-            $0.translatesAutoresizingMaskIntoConstraints = false
-        }
-        
-        [baeminOneSavingDeliveryButton,
-         baeminOneCuttletButton,
-         baeminOnePizzaButton,
-         baeminOneChineseButton,
-         baeminOneChickenButton
-        ].forEach {
-            baeminOneButtonTopStackView.addArrangedSubview($0)
-            $0.translatesAutoresizingMaskIntoConstraints = false
-        }
-        
-        [baeminOneBuggerButton,
-         baeminOneSnackButton,
-         baeminOneDissertButton,
-         baeminOnePigFootButton,
-         baeminOneAllButton
-        ].forEach {
-            baeminOneButtonBottomStackView.addArrangedSubview($0)
-            $0.translatesAutoresizingMaskIntoConstraints = false
-        }
-                
-        [baeminOneButtonTopStackView, baeminOneButtonBottomStackView].forEach {
-            baeminOneButtonStackView.addArrangedSubview($0)
-            $0.translatesAutoresizingMaskIntoConstraints = false
-        }
-        
-        [baeminOneLabelStackView, baeminOneButton, baeminOneButtonStackView].forEach {
-            baeminOneContainerView.addSubview($0)
-            $0.translatesAutoresizingMaskIntoConstraints = false
-        }
-        
-        [mainSearchBar,
+        [mainSearchButton,
          containerStackView
         ].forEach {
             addSubview($0)
@@ -271,19 +164,19 @@ extension DeliverMainView {
     private func configureLayout() {
         let safeArea = safeAreaLayoutGuide
         
-        baeminOneLabelStackView.setCustomSpacing(5, after: baeminOneSubLabel)
         NSLayoutConstraint.activate([
+            
             // MARK: mainSearchBar Constraints
             
-            mainSearchBar.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.06),
-            mainSearchBar.topAnchor.constraint(equalTo: safeArea.topAnchor),
-            mainSearchBar.centerXAnchor.constraint(equalTo: centerXAnchor),
-            mainSearchBar.leadingAnchor.constraint(equalTo: leadingAnchor),
+            mainSearchButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.06),
+            mainSearchButton.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            mainSearchButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            mainSearchButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             
             // MARK: Container StackView Constraints
             
             containerStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            containerStackView.topAnchor.constraint(equalTo: mainSearchBar.bottomAnchor, constant: 10),
+            containerStackView.topAnchor.constraint(equalTo: mainSearchButton.bottomAnchor, constant: 10),
             containerStackView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 15),
             
             // MARK: couponAdImageView Constraints
@@ -298,42 +191,11 @@ extension DeliverMainView {
             categoryButtonStackView.centerXAnchor.constraint(equalTo: containerStackView.centerXAnchor),
             categoryButtonStackView.leadingAnchor.constraint(equalTo: containerStackView.leadingAnchor),
             
-            // MARK: baeminOneLabelStackView Constraints
-            
-            baeminOneLabelStackView
-                .topAnchor.constraint(
-                equalTo: baeminOneContainerView.topAnchor,
-                constant: 15
-            ),
-            baeminOneLabelStackView.leadingAnchor.constraint(
-                equalTo: baeminOneContainerView.leadingAnchor,
-                constant: 15
-            ),
-            baeminOneLabelStackView.trailingAnchor.constraint(
-                equalTo: baeminOneContainerView.trailingAnchor,
-                constant: -80
-            ),
-            
-            // MARK: baeminOneButton Constraints
-            
-            baeminOneButton.centerYAnchor.constraint(equalTo: baeminOneLabelStackView.centerYAnchor),
-            baeminOneButton.trailingAnchor.constraint(
-                equalTo: baeminOneContainerView.trailingAnchor,
-                constant: -20
-            ),
-            
-            // MARK: baeminOneButtonStackView Constraints
-            
-            baeminOneButtonStackView.centerXAnchor.constraint(equalTo: baeminOneContainerView.centerXAnchor),
-            baeminOneButtonStackView.topAnchor.constraint(equalTo: baeminOneLabelStackView.bottomAnchor),
-            baeminOneButtonStackView.bottomAnchor.constraint(equalTo: baeminOneContainerView.bottomAnchor, constant: -5),
-            baeminOneButtonStackView.leadingAnchor.constraint(equalTo: baeminOneContainerView.leadingAnchor, constant: 15),
-            
             // MARK: baeminOneContainerView Constraints
             
-            baeminOneContainerView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            baeminOneContainerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.3),
-            baeminOneContainerView.leadingAnchor.constraint(equalTo: containerStackView.leadingAnchor),
+            baeminOneMenuView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            baeminOneMenuView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.28),
+            baeminOneMenuView.leadingAnchor.constraint(equalTo: containerStackView.leadingAnchor),
             
             // MARK: bannerADImageView Constraints
             
