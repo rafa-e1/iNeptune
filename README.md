@@ -605,9 +605,6 @@ guard let user = self.veryLongFunctionNameWhichReturnsOptionalUser(), let name =
 ### [ 최대 줄 길이 ]
 > 한 줄은 최대 120자를 넘지 않아야 합니다.
 
-![enter image description here](https://file.notion.so/f/f/f1912130-0409-4e90-a90f-6091ae253e73/44b18840-560b-4cc9-914e-f9c60d605f62/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-09-21_09.59.17.png?id=c9978566-dcad-4ede-be80-4ce66c2fd3d4&table=block&spaceId=f1912130-0409-4e90-a90f-6091ae253e73&expirationTimestamp=1695578400000&signature=_sT2QM4uMgVoDKv3tKLoHzN-tsqbtCFjhplcjE3V8Oc&downloadName=%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-09-21%2009.59.17.png)
-![enter image description here](https://file.notion.so/f/f/f1912130-0409-4e90-a90f-6091ae253e73/9293c121-e0cc-40c2-9079-21cba8611c87/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-09-21_10.03.53.png?id=fe049281-220c-4d7a-865b-415400f400e3&table=block&spaceId=f1912130-0409-4e90-a90f-6091ae253e73&expirationTimestamp=1695578400000&signature=LqAa_BXiCJE3kOQcpb9dfUYZFX29AcQx3qfrAfuJOOk&downloadName=%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-09-21%2010.03.53.png)
-
 <br>
 
 [목차로 이동 🔺](#목차)
