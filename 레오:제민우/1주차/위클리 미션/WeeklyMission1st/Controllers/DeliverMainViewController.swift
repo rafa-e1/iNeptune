@@ -12,6 +12,39 @@ final class DeliverMainViewController: UIViewController {
     private let deliverMainView = DeliverMainView()
     private let baeminOneMenuView = BaeminOneMenuView()
     
+    lazy var myNeighborhoodButton: UIButton = {
+        
+        var configuration = UIButton.Configuration.plain()
+        configuration.title = "내 동네"
+        configuration.image = UIImage(systemName: "chevron.down")
+        configuration.imagePlacement = .trailing
+        
+        let button = UIButton(configuration: configuration)
+
+        let mainNeighborhood = UIAction(
+            title: "내 동네",
+            handler: { _ in print("내 동네")}
+        )
+        let subNeighborhood = UIAction(
+            title: "다른 동네",
+            handler: { _ in print("다른 동네")}
+        )
+        let setMyNeighborhood = UIAction(
+            title: "내 동네 설정하기",
+            handler: { _ in /*navigationController?.pushViewController(dummyVC, animated: true)*/}
+        )
+        
+        button.menu = UIMenu(options: .displayInline, children: [mainNeighborhood, subNeighborhood, setMyNeighborhood])
+        button.showsMenuAsPrimaryAction = true
+        button.changesSelectionAsPrimaryAction = true
+        
+        button.tintColor = .black
+//        button.addTarget(self, action: #selector(didTapMyNeighborHoodButton), for: .touchUpInside)
+        button.sizeToFit()
+        
+        return button
+    }()
+    
     override func loadView() {
         view = deliverMainView
     }
@@ -49,7 +82,6 @@ extension DeliverMainViewController {
             var config = UIButton.Configuration.plain()
             config.baseForegroundColor = .white
             config.attributedTitle = AttributedString("우리집", attributes: container)
-            config.baseForegroundColor = UIColor.white
             
             let imageConfig = UIImage.SymbolConfiguration(pointSize: 20, weight: .light)
             config.image = UIImage(systemName: "arrowtriangle.down.fill", withConfiguration: imageConfig)
@@ -60,6 +92,10 @@ extension DeliverMainViewController {
             
             button.addTarget(self, action: #selector(didTapAdressButton), for: .touchUpInside)
             
+            // 이거 말고 아래 코드 사용해보기
+//            let symbolConfig = UIImage.SymbolConfiguration(pointSize: 10, weight: .semibold)
+//            config.image = UIImage(systemName: "chevron.down", withConfiguration: symbolConfig)
+
             button.imageView!.translatesAutoresizingMaskIntoConstraints = false
             button.imageView!.widthAnchor.constraint(equalToConstant: 10).isActive = true
             button.imageView!.heightAnchor.constraint(equalToConstant: 6).isActive = true
