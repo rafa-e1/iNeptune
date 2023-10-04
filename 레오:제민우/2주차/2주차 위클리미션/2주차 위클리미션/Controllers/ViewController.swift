@@ -11,6 +11,10 @@ final class ViewController: UIViewController {
 
     let dummyVC = DummyViewController()
     
+    var productsArray: [ProductModel] = []
+    
+    var productDataManager = ProductDataManager()
+    
     let productTableView = UITableView()
     
     lazy var myNeighborhoodButton: UIButton = {
@@ -61,22 +65,30 @@ final class ViewController: UIViewController {
         configureSubViews()
         configureLayout()
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let safeAreaHeight = view.frame.size.height - view.safeAreaInsets.top - view.safeAreaInsets.bottom
+        productTableView.rowHeight = safeAreaHeight / 4.7
+    }
 }
 
 // MARK: Implement TableView DataSource
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return productsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath) as! ProductCell
         
-        cell.productImage.image = UIImage(named: "")
-        cell.productTitle.text = "가나다"
-        cell.productDescription.text = "대연동"
-        cell.productPrice.text = "25,000원"
+        cell.productImage.image = productsArray[indexPath.row].productImage
+        cell.productTitle.text = productsArray[indexPath.row].productTitle
+        cell.productDescription.text = productsArray[indexPath.row].productDescription
+        cell.productPrice.text = productsArray[indexPath.row].productPrice
+        cell.selectionStyle = .none
         
         return cell
     }
@@ -87,10 +99,11 @@ extension ViewController: UITableViewDataSource {
 // MARK: Configure Initial Setting
 extension ViewController {
     private func configureInitialSetting() {
+        productsArray = productDataManager.fetchProductData()
+        
         productTableView.dataSource = self
 //        productTableView.delegate = self
         productTableView.register(ProductCell.self, forCellReuseIdentifier: "ProductCell")
-        productTableView.rowHeight = 120
     }
 }
 
