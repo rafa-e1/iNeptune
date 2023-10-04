@@ -11,7 +11,9 @@ final class ProductCell: UITableViewCell {
 
     let productImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleToFill
+        imageView.layer.borderWidth = 1
+        imageView.layer.borderColor = UIColor.systemGray3.cgColor
         return imageView
     }()
     
@@ -54,6 +56,12 @@ final class ProductCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        productImage.clipsToBounds = true
+        productImage.layer.cornerRadius = productImage.frame.height / 8
+    }
 }
 
 // MARK: Configure Layout
@@ -84,7 +92,7 @@ extension ProductCell {
             // MARK: ProductLabelStackView Constraints
             productLabelStackView.topAnchor.constraint(equalTo: productImage.topAnchor),
             productLabelStackView.leadingAnchor.constraint(equalTo: productImage.trailingAnchor, constant: 15),
-            productLabelStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15)
+            productLabelStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10)
         ])
     }
 }
