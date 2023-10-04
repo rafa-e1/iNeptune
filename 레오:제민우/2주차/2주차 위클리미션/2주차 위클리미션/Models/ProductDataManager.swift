@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProductDataManager {
+final class ProductDataManager {
     private var productDataArray: [ProductModel] = [
         ProductModel(
             productImage: UIImage(named: ""),

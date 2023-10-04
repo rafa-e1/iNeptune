@@ -11,6 +11,8 @@ final class ViewController: UIViewController {
 
     let dummyVC = DummyViewController()
     
+    let productTableView = UITableView()
+    
     lazy var myNeighborhoodButton: UIButton = {
         
         var container = AttributeContainer()
@@ -53,13 +55,49 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        configureInitialSetting()
         configureNaviBarLayout()
         configureNaviBarItem()
+        configureSubViews()
+        configureLayout()
+    }
+}
+
+// MARK: Implement TableView DataSource
+
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 6
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath) as! ProductCell
+        
+        cell.productImage.image = UIImage(named: "")
+        cell.productTitle.text = "가나다"
+        cell.productDescription.text = "대연동"
+        cell.productPrice.text = "25,000원"
+        
+        return cell
+    }
+    
+    
+}
+
+// MARK: Configure Initial Setting
+extension ViewController {
+    private func configureInitialSetting() {
+        productTableView.dataSource = self
+//        productTableView.delegate = self
+        productTableView.register(ProductCell.self, forCellReuseIdentifier: "ProductCell")
+        productTableView.rowHeight = 120
     }
 }
 
 // MARK: Configure Navigation Controller
+
 extension ViewController {
+    
     private func configureNaviBarLayout() {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -101,6 +139,7 @@ extension ViewController {
 }
 
 // MARK: Configure AddTarget
+
 extension ViewController {
     @objc private func didTapNaviBarRightItems() {
         navigationController?.pushViewController(dummyVC, animated: true)
@@ -108,5 +147,26 @@ extension ViewController {
     
     @objc private func didTapMyNeighborHoodButton() {
         myNeighborhoodButton.isSelected.toggle()
+    }
+}
+
+
+// MARK: Configure Layout
+
+extension ViewController {
+    
+    private func configureSubViews() {
+        view.addSubview(productTableView)
+        productTableView.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private func configureLayout() {
+        let safeArea = view.safeAreaLayoutGuide
+        NSLayoutConstraint.activate([
+            productTableView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            productTableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+            productTableView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            productTableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
+        ])
     }
 }
