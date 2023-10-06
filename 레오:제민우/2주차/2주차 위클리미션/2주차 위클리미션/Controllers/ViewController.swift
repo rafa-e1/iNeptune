@@ -158,31 +158,44 @@ extension ViewController {
     
     private func configureNaviBarItem() {
         
-        let allServiceButton = UIBarButtonItem(
-            image: UIImage(systemName: "text.justify"),
-            style: .plain,
-            target: self,
-            action: #selector(didTapNaviBarRightItems)
-        )
-        let findButton = UIBarButtonItem(
-            image: UIImage(systemName: "magnifyingglass"),
-            style: .plain,
-            target: self,
-            action: #selector(didTapNaviBarRightItems)
-        )
-        let notificationButton = UIBarButtonItem(
-            image: UIImage(systemName: "bell"),
-            style: .plain,
-            target: self,
-            action: #selector(didTapNaviBarRightItems)
-        )
+        lazy var allServiceButton: UIButton = {
+            let button = UIButton(type: .custom)
+            button.setImage(UIImage(systemName: "text.justify"), for: .normal)
+            button.addTarget(self, action: #selector(didTapNaviBarRightItems), for: .touchUpInside)
+            return button
+        }()
+        
+        lazy var findButton: UIButton = {
+            let button = UIButton(type: .custom)
+            button.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+            button.addTarget(self, action: #selector(didTapNaviBarRightItems), for: .touchUpInside)
+            return button
+        }()
+        lazy var notificationButton: UIButton = {
+            let button = UIButton(type: .custom)
+            button.setImage(UIImage(systemName: "bell"), for: .normal)
+            button.addTarget(self, action: #selector(didTapNaviBarRightItems), for: .touchUpInside)
+            return button
+        }()
+
+        lazy var rightBarButtonStackView: UIStackView = {
+            let stackView = UIStackView(arrangedSubviews: [findButton, allServiceButton, notificationButton])
+            stackView.axis = .horizontal
+            stackView.distribution = .fillEqually
+            stackView.alignment = .fill
+            stackView.spacing = 15
+            return stackView
+        }()
         
         allServiceButton.tintColor = .black
         findButton.tintColor = .black
         notificationButton.tintColor = .black
 
+        let spacer = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        spacer.width = 15
+        
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: myNeighborhoodButton)
-        navigationItem.rightBarButtonItems = [notificationButton, allServiceButton, findButton]
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBarButtonStackView)
     }
 }
 
