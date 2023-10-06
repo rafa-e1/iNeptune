@@ -21,6 +21,8 @@ final class ViewController: UIViewController {
     
     private var widthConstraint: NSLayoutConstraint?
     
+    let refreshControl = UIRefreshControl()
+
     lazy var myNeighborhoodButton: UIButton = {
         
         var container = AttributeContainer()
@@ -116,6 +118,10 @@ extension ViewController: UITableViewDelegate {
             widthConstraint?.isActive = true
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        navigationController?.pushViewController(dummyVC, animated: true)
+    }
 }
 
 // MARK: Configure Initial Setting
@@ -127,6 +133,10 @@ extension ViewController {
         productTableView.dataSource = self
         productTableView.delegate = self
         productTableView.register(ProductCell.self, forCellReuseIdentifier: "ProductCell")
+        
+        refreshControl.tintColor = .orange
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+        productTableView.refreshControl = refreshControl
         
         productTableView.scrollsToTop = true
     }
@@ -186,6 +196,13 @@ extension ViewController {
     @objc private func didTapMyNeighborHoodButton() {
         myNeighborhoodButton.isSelected.toggle()
     }
+    
+    @objc private func refreshData(_ sender: UIRefreshControl) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.productTableView.reloadData()
+            sender.endRefreshing()
+        }
+    }
 }
 
 
@@ -199,6 +216,8 @@ extension ViewController {
         
         productTableView.addSubview(postFloatingButton)
         postFloatingButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        productTableView.addSubview(refreshControl)
     }
     
     private func configureLayout() {
