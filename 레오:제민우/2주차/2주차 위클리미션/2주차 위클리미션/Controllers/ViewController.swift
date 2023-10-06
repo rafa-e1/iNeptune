@@ -9,13 +9,17 @@ import UIKit
 
 final class ViewController: UIViewController {
 
-    let dummyVC = DummyViewController()
+    private let dummyVC = DummyViewController()
     
-    var productsArray: [ProductModel] = []
+    private var productsArray: [ProductModel] = []
     
-    var productDataManager = ProductDataManager()
+    private var productDataManager = ProductDataManager()
     
-    let productTableView = UITableView()
+    private let productTableView = UITableView()
+    
+    private let postFloatingButton = PostFloatingButton()
+    
+    private var widthConstraint: NSLayoutConstraint?
     
     lazy var myNeighborhoodButton: UIButton = {
         
@@ -92,18 +96,39 @@ extension ViewController: UITableViewDataSource {
         
         return cell
     }
+}
+
+// MARK: Implement TableView Delegate
+
+extension ViewController: UITableViewDelegate {
     
-    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if productTableView.contentOffset.y <= 0 {
+            postFloatingButton.configuration = postFloatingButton.configureCapsuleFloatingButton()
+            widthConstraint?.isActive = false
+            widthConstraint = postFloatingButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.25)
+            widthConstraint?.isActive = true
+            postFloatingButton.layoutIfNeeded()
+        } else if productTableView.contentOffset.y > 0  {
+            postFloatingButton.configuration = postFloatingButton.configureCircleFloatingButton()
+            widthConstraint?.isActive = false
+            widthConstraint = postFloatingButton.widthAnchor.constraint(equalTo: postFloatingButton.heightAnchor)
+            widthConstraint?.isActive = true
+        }
+    }
 }
 
 // MARK: Configure Initial Setting
+
 extension ViewController {
     private func configureInitialSetting() {
         productsArray = productDataManager.fetchProductData()
         
         productTableView.dataSource = self
-//        productTableView.delegate = self
+        productTableView.delegate = self
         productTableView.register(ProductCell.self, forCellReuseIdentifier: "ProductCell")
+        
+        productTableView.scrollsToTop = true
     }
 }
 
@@ -171,15 +196,25 @@ extension ViewController {
     private func configureSubViews() {
         view.addSubview(productTableView)
         productTableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        productTableView.addSubview(postFloatingButton)
+        postFloatingButton.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func configureLayout() {
         let safeArea = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
+            // MARK: ProductTableView Constraints
+            
             productTableView.topAnchor.constraint(equalTo: safeArea.topAnchor),
             productTableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
             productTableView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
-            productTableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
+            productTableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            
+            // MARK: postFloatingButton Constraints
+            postFloatingButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.06),
+            postFloatingButton.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -15),
+            postFloatingButton.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -15)
         ])
     }
 }
