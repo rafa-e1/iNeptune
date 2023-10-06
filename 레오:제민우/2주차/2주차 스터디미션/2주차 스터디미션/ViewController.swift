@@ -62,6 +62,7 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLayout()
+        view.backgroundColor = .white
         
     }
 }
@@ -73,12 +74,11 @@ extension ViewController {
         
         [diceImageView, secondDiceImageView].forEach {
             diceStackView.addArrangedSubview($0)
-//            $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.translatesAutoresizingMaskIntoConstraints = false
         }
         
         [diceStackView, doubleLabel, changeButton].forEach {
             view.addSubview($0)
-            $0.translatesAutoresizingMaskIntoConstraints = false
         }
         
         NSLayoutConstraint.activate([
