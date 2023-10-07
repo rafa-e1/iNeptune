@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PracticingUIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XeN-F7-uee">
+                                <rect key="frame" x="20" y="159" width="353" height="171.66666666666663"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g44-yh-dvh">
+                                        <rect key="frame" x="0.0" y="0.0" width="171.66666666666666" height="171.66666666666666"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="g44-yh-dvh" secondAttribute="height" id="XJl-AM-hEI"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="86Y-RW-Avi">
+                                        <rect key="frame" x="181.66666666666663" y="0.0" width="171.33333333333337" height="171.66666666666666"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FzX-j7-52F">
+                                <rect key="frame" x="159" y="683.66666666666663" width="75" height="34.333333333333371"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="diceButtonDidTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="63N-z8-cIg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="FzX-j7-52F" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="HEJ-Vg-Fhb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FzX-j7-52F" secondAttribute="bottom" constant="100" id="T5w-ga-xiH"/>
+                            <constraint firstItem="XeN-F7-uee" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Yel-QR-Qno"/>
+                            <constraint firstItem="XeN-F7-uee" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="ko1-nS-H79"/>
+                            <constraint firstItem="XeN-F7-uee" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="q3H-0c-F3h"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="diceButton" destination="FzX-j7-52F" id="pNJ-ft-erw"/>
+                        <outlet property="diceImageView" destination="g44-yh-dvh" id="r2v-OL-TpU"/>
+                        <outlet property="diceImageView2" destination="86Y-RW-Avi" id="g7L-Ie-U9Y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="19.083969465648853" y="-34.507042253521128"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
