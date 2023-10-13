@@ -96,7 +96,6 @@
 > 
 > 후니: 꾸준히 그리고 열심히 공부해야겠다. 그래서 라파와 레오가 추천해주는 것들과 swift 문법과 스코클을 열심히 들어야겠다.
 
-
 <br>
 
 [목차로 이동 🔺](#목차)
@@ -107,8 +106,8 @@
 
 > **라파** 미션 결과물
 >
+*라파 위클리 미션 누락됨*
 ![Simulator Screen Recording - iPhone 15 Pro - 2023-10-13 at 10 25 41](https://github.com/iNeptune-Code-Adventurers/iNeptune/assets/118424182/901cd89e-dd48-4b5f-b6c7-31292558a785)
-
 
 ### 회고록
 > ## 배운 점
@@ -148,33 +147,33 @@
 # 3주차
 > **라파** 미션 결과물
 >
+![Simulator Screen Recording - iPhone 15 Pro - 2023-10-13 at 23 24 02](https://github.com/iNeptune-Code-Adventurers/iNeptune/assets/118424182/9784b39e-631d-4c72-bc8f-2f8d28270c21)
 ![Simulator Screen Recording - iPhone 15 Pro - 2023-10-13 at 10 27 28](https://github.com/iNeptune-Code-Adventurers/iNeptune/assets/118424182/bf5d6aeb-1819-40c5-9170-e827bfc2d3a5)
-
 
 ### 회고록
 > ## 배운 점
-> 라파: 
+> 라파: scrollViewDidScroll 메서드를 사용하여 스트레치 헤더 뷰의 높이와 위치를 동적으로 조절하는 것과 UILabel을 상속받는 PaddingLabel이라는 커스텀 클래스를 정의하여 레이블을 커스텀하는 방법을 배웠다.
 >
 > 레오: 
 >
 > 후니: 
 
 > ## 잘한 점
-> 라파: 
+> 라파: ```case IndexPath(row: 0, section: 0): ``` IndexPath에 row와 section이라는 연관값을 추가하여 각 셀에 해당하는 데이터가 전달되도록 작성했다.
 > 
 > 레오: 
 > 
 > 후니: 
 
 > ## 아쉬운 점
-> 라파: 
+> 라파: 3주차에서 가장 중요한 핵심인 데이터를 다른 뷰 컨트롤러에 전달하는 것을 구현하지 못해 아쉽다.
 > 
 > 레오: 
 > 
 > 후니: 
 
 > ## 앞으로의 계획
-> 라파: 
+> 라파: 모든 스터디가 마무리되면 1주차부터 10주차까지 진행했던 프로젝트들 중 완성하지 못한 프로젝트에 대해 완성할 것이다.
 > 
 > 레오: 
 > 
