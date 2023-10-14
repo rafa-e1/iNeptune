@@ -117,17 +117,6 @@
 			path = MyBM;
 			sourceTree = "<group>";
 		};
-		53AF857E2AC3BA8800C1AB10 /* HomeData */ = {
-			isa = PBXGroup;
-			children = (
-				53AF85782AC3B9D900C1AB10 /* Coupon.swift */,
-				53AF857A2AC3B9E100C1AB10 /* Option.swift */,
-				53AF857C2AC3B9E600C1AB10 /* Category.swift */,
-				53AF85722AC3B69300C1AB10 /* Banner.swift */,
-			);
-			name = HomeData;
-			sourceTree = "<group>";
-		};
 		53AF857F2AC3BABD00C1AB10 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,8 +163,9 @@
 			children = (
 				53B32CC02ABFFCEE009378E6 /* Resources */,
 				53B32CC12ABFFD43009378E6 /* Model */,
-				53B32CBE2ABFFCD1009378E6 /* Controller */,
 				53B32CBF2ABFFCDD009378E6 /* Views */,
+				53B32CBE2ABFFCD1009378E6 /* Controller */,
+				53B32C9C2ABEA967009378E6 /* Info.plist */,
 			);
 			path = FirstMission;
 			sourceTree = "<group>";
@@ -208,7 +198,6 @@
 				53B32C902ABEA966009378E6 /* SceneDelegate.swift */,
 				53B32C992ABEA967009378E6 /* LaunchScreen.storyboard */,
 				53B32C972ABEA967009378E6 /* Assets.xcassets */,
-				53B32C9C2ABEA967009378E6 /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -216,7 +205,10 @@
 		53B32CC12ABFFD43009378E6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				53AF857E2AC3BA8800C1AB10 /* HomeData */,
+				53AF85782AC3B9D900C1AB10 /* Coupon.swift */,
+				53AF857A2AC3B9E100C1AB10 /* Option.swift */,
+				53AF857C2AC3B9E600C1AB10 /* Category.swift */,
+				53AF85722AC3B69300C1AB10 /* Banner.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -473,7 +465,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7WULLR98GP;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FirstMission/Resources/Info.plist;
+				INFOPLIST_FILE = FirstMission/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "배달의민족";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -502,7 +494,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7WULLR98GP;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FirstMission/Resources/Info.plist;
+				INFOPLIST_FILE = FirstMission/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "배달의민족";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
