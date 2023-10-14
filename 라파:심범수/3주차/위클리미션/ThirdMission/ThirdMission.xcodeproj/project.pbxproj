@@ -72,13 +72,8 @@
 		530BA3162ACF9744006FF800 /* ThirdMission */ = {
 			isa = PBXGroup;
 			children = (
-				530BA3172ACF9744006FF800 /* AppDelegate.swift */,
-				530BA3192ACF9744006FF800 /* SceneDelegate.swift */,
-				5394D47E2AD77C3100E8723E /* Model */,
-				5394D4802AD77C5D00E8723E /* View */,
-				5394D47F2AD77C5000E8723E /* Controller */,
-				530BA3202ACF9746006FF800 /* Assets.xcassets */,
-				530BA3222ACF9746006FF800 /* LaunchScreen.storyboard */,
+				5394D53E2ADA911A00E8723E /* Resources */,
+				5394D53F2ADA912400E8723E /* Sources */,
 				530BA3252ACF9746006FF800 /* Info.plist */,
 			);
 			path = ThirdMission;
@@ -112,6 +107,27 @@
 				5394D4812AD77E8B00E8723E /* CartCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		5394D53E2ADA911A00E8723E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				530BA3172ACF9744006FF800 /* AppDelegate.swift */,
+				530BA3192ACF9744006FF800 /* SceneDelegate.swift */,
+				530BA3202ACF9746006FF800 /* Assets.xcassets */,
+				530BA3222ACF9746006FF800 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5394D53F2ADA912400E8723E /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				5394D47E2AD77C3100E8723E /* Model */,
+				5394D4802AD77C5D00E8723E /* View */,
+				5394D47F2AD77C5000E8723E /* Controller */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
