@@ -77,6 +77,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5394D5402ADA917700E8723E /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				53B32CC12ABFFD43009378E6 /* Model */,
+				53B32CBF2ABFFCDD009378E6 /* Views */,
+				53B32CBE2ABFFCD1009378E6 /* Controller */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
 		53AF85012AC2531000C1AB10 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,9 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				53B32CC02ABFFCEE009378E6 /* Resources */,
-				53B32CC12ABFFD43009378E6 /* Model */,
-				53B32CBF2ABFFCDD009378E6 /* Views */,
-				53B32CBE2ABFFCD1009378E6 /* Controller */,
+				5394D5402ADA917700E8723E /* Sources */,
 				53B32C9C2ABEA967009378E6 /* Info.plist */,
 			);
 			path = FirstMission;
@@ -211,6 +219,7 @@
 				53AF85722AC3B69300C1AB10 /* Banner.swift */,
 			);
 			name = Model;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		53B32CC42AC00001009378E6 /* Cells */ = {
