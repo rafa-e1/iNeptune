@@ -9,7 +9,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    let srpImageData = ["scissors", "rock", "paper"]
+    private let srpImageData = ["scissors", "rock", "paper"]
     
     private lazy var statusLabel: UILabel = {
         let label = UILabel()
