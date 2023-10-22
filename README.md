@@ -77,7 +77,7 @@
 레오 🐶
 * UIButton의 configuration을 사용해 버튼의 레이아웃을 잡는 방법을 익혔다.
 
-후니🐱
+후니 🐱
 * 기본적인 Xcode 단축키부터 스토리보드 기본적인 사용법, 옵셔널 기본 내용을 배웠다.
 
 ---
@@ -91,7 +91,7 @@
 레오 🐶
 * 첫 프로젝트 이후 다시 개발을 했는데 레이아웃 잡는게 생각보다 잘 돼서 성장한 걸 느꼈다. 
 
-후니🐱
+후니 🐱
 * 내가 잘한 점보다는 라파와 레오가 적극적으로 도와줘서 너무 고마웠다.
 
 ---
@@ -104,7 +104,7 @@
 레오 🐶
 * 배달의 민족 메인화면이 엄청 어려웠다. 탭바도 커스텀해야되고, UIView의 border에 gradient주기, 디바이스 별 fontsize 대응 등 해결하지 못한 문제가 많아서 시간이 날 때 계속 고쳐봐야겠다.
 
-후니🐱
+후니 🐱
 * 내가 공부해야할 양이 너무 많이 남아있다는 것
 
 ---
@@ -116,7 +116,7 @@
 레오 🐶
 * 트러블 슈팅도 해당 주차 내로 완성하는걸 목표로 해야겠다. 데드라인 안에 구현을 다 할 수 있도록 계획을 꼼꼼히 세워야겠다.
 
-후니🐱
+후니 🐱
 * 꾸준히 그리고 열심히 공부해야겠다. 그래서 라파와 레오가 추천해주는 것들과 swift 문법과 스코클을 열심히 들어야겠다.
 
 <br>
@@ -139,7 +139,7 @@
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 ---
@@ -151,7 +151,7 @@
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 ---
@@ -163,7 +163,7 @@
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 ---
@@ -175,7 +175,7 @@
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 <br>
@@ -199,7 +199,7 @@
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 ---
@@ -214,7 +214,7 @@ case IndexPath(row: 0, section: 0):
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 ---
@@ -226,7 +226,7 @@ case IndexPath(row: 0, section: 0):
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 ---
@@ -238,7 +238,7 @@ case IndexPath(row: 0, section: 0):
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 <br>
@@ -270,7 +270,7 @@ let hostingController = UIHostingController(rootView: homeVC)
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 ---
@@ -289,7 +289,7 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 ---
@@ -302,7 +302,7 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 ---
@@ -314,7 +314,7 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 <br>
@@ -338,7 +338,7 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 ---
@@ -350,7 +350,7 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 ---
@@ -362,7 +362,7 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 ---
@@ -374,7 +374,7 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 <br>
@@ -398,7 +398,7 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 ---
@@ -410,7 +410,7 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 ---
@@ -422,7 +422,7 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 ---
@@ -434,7 +434,7 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 <br>
@@ -458,7 +458,7 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 ---
@@ -470,7 +470,7 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 ---
@@ -482,7 +482,7 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 ---
@@ -494,7 +494,7 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 <br>
@@ -518,7 +518,7 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 ---
@@ -530,7 +530,7 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 ---
@@ -542,7 +542,7 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 ---
@@ -554,7 +554,7 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 <br>
@@ -578,7 +578,7 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 ---
@@ -590,7 +590,7 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 ---
@@ -602,7 +602,7 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 ---
@@ -614,7 +614,7 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 <br>
@@ -638,7 +638,7 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 ---
@@ -650,7 +650,7 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 ---
@@ -662,7 +662,7 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 ---
@@ -674,7 +674,7 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 레오 🐶
 * 
 
-후니🐱
+후니 🐱
 * 
 
 <br>
