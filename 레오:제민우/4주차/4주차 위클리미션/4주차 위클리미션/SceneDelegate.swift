@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  3주차 스터디미션
+//  4주차 위클리미션
 //
-//  Created by 제민우 on 2023/10/12.
+//  Created by 제민우 on 10/30/23.
 //
 
 import UIKit
@@ -11,8 +11,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-    먼아ㅣ런;ㅣㅁ어리
+
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(windowScene: windowScene)
@@ -23,6 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         self.window?.backgroundColor = .systemBackground
         self.window?.makeKeyAndVisible()
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
