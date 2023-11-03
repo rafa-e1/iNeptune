@@ -253,7 +253,6 @@ case IndexPath(row: 0, section: 0):
 ![Simulator Screen Recording - iPhone 15 Pro - 2023-10-22 at 21 34 20](https://github.com/iNeptune-Code-Adventurers/iNeptune/assets/118424182/6765710b-1343-4084-887c-a82bc4a9ebdb)
 ![Simulator Screen Recording - iPhone 15 Pro - 2023-10-22 at 21 55 59](https://github.com/iNeptune-Code-Adventurers/iNeptune/assets/118424182/d8c573bb-1e11-4da3-a1b8-2b1c0f1d858f)
 
-
 ## 회고록
 ### 배운 점
 라파 🐵
