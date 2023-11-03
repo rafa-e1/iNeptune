@@ -324,7 +324,12 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 <br>
 
 # 5주차
-[ **닉네임** ] 미션 결과물
+[ **라파** ] 미션 결과물
+
+#### (왼쪽) 일반 로그인 / (오른쪽) 카카오 로그인
+
+![1](https://github.com/iNeptune-Code-Adventurers/iNeptune/assets/118424182/2ab4b08c-f3cd-4720-8de0-34b15c1b2f02)
+![2](https://github.com/iNeptune-Code-Adventurers/iNeptune/assets/118424182/c197542f-0fa2-424f-9755-216a9641fd6d)
 
 <br>
 
