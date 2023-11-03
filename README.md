@@ -333,8 +333,6 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 
 <br>
 
-위클리 미션 실행화면 영상 업로드 / 스터디 미션 실행화면 영상 업로드
-
 ## 회고록
 ### 배운 점
 라파 🐵
