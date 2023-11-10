@@ -70,8 +70,11 @@
 ### 배운 점
 라파 🐵
 * UICollectionView와 UICollectionViewCompositionalLayout을 사용하여 복잡한 레이아웃을 간편하게 구현하는 방법을 배웠다.
+
 * UIRefreshControl을 사용하여 새로고침 기능 구현하는 것을 배웠다.
+
 * 그림자 효과를 주는 방법을 배웠다.
+
 * SafeAreaBrush라는 오픈소스라이브러리를 통해 SafeArea 영역을 보다 쉽게 색상을 채우는 것을 배웠다.
 
 레오 🐶
@@ -85,7 +88,9 @@
 ### 잘한 점
 라파 🐵
 * 코드 베이스로 개발을 하니 코드 구조에 대해 예전보다 더욱 신경쓰게 되었다.
+
 * 각 섹션에 대한 레이아웃을 별도의 메서드로 분리하여 가독성을 높이려고 노력하였다.
+
 * 이번 프로젝트의 네비게이션 바와 검색 버튼과 같은 디자인은 처음 구현해봤는데 예상보다 잘 구현되었다.
 
 레오 🐶
@@ -99,6 +104,7 @@
 ### 아쉬운 점
 라파 🐵
 * 코드 베이스로 레이아웃을 구성하는 것이 어려워 완벽하게 구현하지 못한 것이 아쉬웠다.
+
 * 탭 바의 가운데 버튼이 기기 크기가 달라지면서 위치를 벗어나는 것이 아쉬웠다.
 
 레오 🐶
@@ -194,6 +200,7 @@
 ### 배운 점
 라파 🐵
 * scrollViewDidScroll 메서드를 사용하여 스트레치 헤더 뷰의 높이와 위치를 동적으로 조절하는 것을 배웠다.
+
 * UILabel을 상속받는 PaddingLabel이라는 커스텀 클래스를 정의하여 레이블을 커스텀하는 방법을 배웠다.
 
 레오 🐶
@@ -207,6 +214,7 @@
 ### 잘한 점
 라파 🐵
 * IndexPath에 row와 section이라는 연관값을 추가하여 각 셀에 해당하는 데이터가 전달되도록 작성하였다.
+
 ```swift
 case IndexPath(row: 0, section: 0):
 ```
@@ -257,10 +265,12 @@ case IndexPath(row: 0, section: 0):
 ### 배운 점
 라파 🐵
 * UserDefaults를 사용해서 간단한 데이터를 키와 값 형태로 저장할 수 있다는 것을 배웠다. 예를 들어, 사용자의 ID와 비밀번호를 아래와 같이 저장할 수 있다.
+
 ```swift
 let info = ["ID": idTextField.text!, "PW": pwTextField.text!]
 ```
 * 이번 미션에는 SwiftUI도 사용하였는데 UIHostingController라는 클래스를 통해 UIKit에서도 SwiftUI를 불러올 수 있다는 것을 배웠다.
+
 ```swift
 let homeVC = HomeViewController()
 let hostingController = UIHostingController(rootView: homeVC)
@@ -277,6 +287,7 @@ let hostingController = UIHostingController(rootView: homeVC)
 ### 잘한 점
 라파 🐵
 * 저장된 키의 호출 여부에 따라 앱을 실행했을 때 어떤 뷰를 호출할지 결정할 수 있다는 것이 흥미로웠다. 아래 코드는 사용자가 로그인한 상태인지 여부를 확인하고 그에 따라 앱의 루트 뷰 컨트롤러를 설정하는 코드이다.
+
 ```swift
 if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
     window?.rootViewController = hostingController
@@ -296,6 +307,7 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 ### 아쉬운 점
 라파 🐵
 * 4주차 미션은 기능 구현에 중점을 두어서 사용자 친화적인 UI/UX를 제공하지 않았다. 예를 들어, 잘못된 아이디나 비밀번호를 입력했을 때 경고창을 띄우는 대신, 텍스트 필드 흔들림 효과와 빨간색 텍스트로 오류 안내를 제공했다면 사용자 입장에서 더 간편하고 매력적인 시각적 효과를 제공하였을 것이다.
+
 * 아이디와 비밀번호에 대한 정규 표현식을 사용하여 입력값을 유효성 검사하는 기능을 추가했다면 사용자의 입력을 더 엄격하게 검사할 수 있었을 것이다.
 
 레오 🐶
@@ -333,7 +345,155 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 ## 회고록
 ### 배운 점
 라파 🐵
-* 
+
+**_< Login & Register >_**
+* 아래 코드는 UserDefaults(간단한 데이터 저장에 유용)를 사용하여 사용자의 로그인 상태를 저장하고 확인한다. 그리고 사용자가 카카오로 로그인하였는지, 일반 회원가입을 통해 로그인 하였는지를 ```if-else``` 조건문을 통해 세 가지 경우에 대한 처리를 구현하는 법을 배웠다.
+
+```SceneDelegate.swift```
+```swift
+if UserDefaults.standard.string(forKey: "isKakaoLoggedIn") != nil {
+    window?.rootViewController = UINavigationController(rootViewController: tabBarController)
+} else if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
+    window?.rootViewController = UINavigationController(rootViewController: tabBarController)
+} else {
+    window?.rootViewController = LoginViewController()
+}
+```
+
+* Kakao SDK를 활용하여 카카오 계정으로 로그인하는 기능이 구현되었다. 또한, 카카오 로그인 시에는 사용자 정보를 가져와서 처리하고 있다.
+
+```LoginViewController.swift```
+```swift
+private func setUserInfo() {
+    UserApi.shared.me { (user, error) in
+        if let error = error {
+            print(error)
+        } else {
+            print("me() success.")
+                
+            if let nickname = user?.kakaoAccount?.profile?.nickname {
+                UserDefaults.standard.set(nickname, forKey: "nickname")
+                let articleVC = ArticleViewController()
+                let navigationController = UINavigationController(rootViewController: articleVC)
+                    
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?
+                    .rootViewController(navigationController)
+            }
+        }
+    }
+}
+
+.
+.
+.
+
+@objc private func kakaoLoginButtonTapped() {
+    UserApi.shared.loginWithKakaoAccount(prompts: [.SelectAccount]) { (oauthToken, error) in
+        if let error = error {
+            print(error)
+        } else {
+            print("loginWithKakaoAccount() success.")
+            _ = oauthToken
+            UserDefaults.standard.setValue(true, forKey: "isKakaoLoggedIn")
+                
+            self.setUserInfo()
+        }
+    }
+}
+```
+
+* 일반 회원가입을 통해 로그인을 하면 네비게이션 바 타이틀에 회원가입에 사용된 아이디 데이터가 전달되고 카카오로 로그인을 하면 카카오에서 사용하는 이름이 전달되도록 설정했다.
+
+```ArticleViewController.swift```
+```swift
+if let nickname = UserDefaults.standard.string(forKey: "nickname") {
+        navigationItem.title = "\(nickname)님 환영합니다!"
+    } else if let idNickname = UserDefaults.standard.string(forKey: "idNickname") {
+        navigationItem.title = "\(idNickname)님 환영합니다!"
+}
+```
+
+* 비밀번호 입력 필드에서 눈 모양의 아이콘을 통해 비밀번호를 보이기/가리기 할 수 있는 기능을 구현했다. 하지만 비밀번호를 어느정도 입력한 상태에서 보이게 했다가 다시 가리고 비밀번호를 이어서 입력하려고 할 때 비밀번호가 모두 지워지고 처음부터 다시 입력되는 버그(?)가 있어서 커스텀 TextField를 만들고 TextField를 재정의하는 방법을 사용했다.
+
+```CustomPwTextField.swift```
+```swift
+class CustomPwTextField: UITextField {
+    
+    override var isSecureTextEntry: Bool {
+        didSet {
+            if isFirstResponder {
+                _ = becomeFirstResponder()
+            }
+        }
+    }
+    
+    override func becomeFirstResponder() -> Bool {
+        let success = super.becomeFirstResponder()
+        if isSecureTextEntry, let text = self.text {
+            self.text?.removeAll()
+            insertText(text)
+        }
+        return success
+    }
+    
+}
+```
+
+**_< NEWS API >_**
+* **[ 프로토콜 활용 ]**: ```ArticleModelProtocol```이라는 프로토콜을 생성하여 델리게이션 패턴을 적용했다. 이를 통해 모델의 작업이 완료되면 뷰 컨트롤러에게 결과를 전달할 수 있었다.
+
+* **[ 네트워크 요청 및 비동기 처리 ]**: 네트워크 요청은 ```URLSession```을 사용하여 비동기로 처리되고 있다. 이는 앱이 다운로드 작업이 완료될 때까지 다른 작업을 수행할 수 있도록 한다. 또한, ```DispatchQueue.main.async```를 사용하여 메인 스레드에서 UI 업데이트를 수행하고 있다.
+
+* **[ 에러 처리 ]**: 네트워크 요청 도중 발생하는 에러에 대한 처리를 구현했다. 만약 에러가 없으면 데이터를 디코딩하고 에러가 발생하면 해당 에러에 대한 적절한 메시지를 출력할 수 있다.
+
+* **[ URL 문자열 상수 사용 ]**: API 엔드포인트에 대한 URL 문자열이 상수로 정의되어 있다. 이는 오타나 변경에 따른 영향을 최소화하고 코드를 더 읽기 쉽게 만든다.
+
+* **[ JSON 디코딩 ]**: JSON 디코딩을 수행할 때 JSONDecoder를 사용한다. 이는 Codable 프로토콜을 이용하여 간단하게 모델 객체로 디코딩할 수 있다.
+
+```ArticleModel.swift```
+```swift
+import Foundation
+
+protocol ArticleModelProtocol {
+    func articlesRetrieved(articles: [Article])
+}
+
+class ArticleModel {
+    
+    var delegate: ArticleModelProtocol?
+    
+    func getArticles() {
+        let urlString = "https://newsapi.org/v2/everything?q=tesla&from=2023-10-03&sortBy=publishedAt&apiKey=1b5ea3c15eae4e45ab353b9e4ee892fb"
+        let url = URL(string: urlString)
+        guard url != nil else {
+            print("Couldn't create url object")
+            return
+        }
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: url!) { data, response, error in
+            if error == nil && data != nil {
+                let decoder = JSONDecoder()
+                do{
+                    let articleService = try decoder.decode(ArticleService.self, from: data!)
+                    
+                    DispatchQueue.main.async {
+                        if let articles = articleService.articles {
+                            self.delegate?.articlesRetrieved(articles: articles)
+                        } else {
+                            print("Article array is nil")
+                        }
+                    }
+                }
+                catch {
+                    print("Error parsing the json")
+                }
+            }
+        }
+        dataTask.resume()
+    }
+    
+}
+```
 
 레오 🐶
 * 
@@ -345,7 +505,54 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 
 ### 잘한 점
 라파 🐵
-* 
+* 일반 회원가입을 통해 로그인이나 카카오로 로그인 했을 때 네비게이션 바에 각각의 경우에 따라 서로 다른 데이터 값이 전달받을 수 있도록 하였다.
+
+* 그리고 이번에는 UI/UX에도 신경 써서 개발하였는데 먼저, 비밀번호 필드에 눈 모양의 아이콘을 통해 비밀번호 보이기/가리기 기능을 구현하였고 아이디와 비밀번호에 대한 정규 표현식을 적용하여 사용자에게 안전한 아이디와 비밀번호를 설정할 수 있게 유도하였습니다.
+
+```LoginViewController.swift```
+```swift
+private func isIdValid(_ id: String) -> Bool {
+    let idRegex = "^[a-zA-Z0-9]{4,}$"
+        return NSPredicate(format: "SELF MATCHES %@", idRegex).evaluate(with: id)
+    }
+    
+private func isPasswordValid(_ password: String) -> Bool {
+    let passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"
+        return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: password)
+    }
+
+.
+.
+.
+
+@objc private func showPasswordButtonTapped(_ sender: UIButton) {
+    pwTextField.isSecureTextEntry.toggle()
+        
+    let imageName = pwTextField.isSecureTextEntry ? "eye" : "eye.slash"
+    let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: 15.0, weight: .medium)
+        
+    let image = UIImage(systemName: imageName)?
+        .withTintColor(.systemGray2, renderingMode: .alwaysOriginal)
+        .withConfiguration(symbolConfiguration)
+        
+    showPasswordButton.setImage(image, for: .normal)
+}
+```
+
+* ```becomeFirstResponder()``` 메서드를 통해 텍스트 필드가 자동으로 활성화되어 키보드가 올라오도록 하였고 활성화된 텍스트 필드 테두리 색이 변경됨으로써 사용자에게 좋은 시각적 효과를 제공하였다.
+
+```swift
+func textFieldDidBeginEditing(_ textField: UITextField) {
+    textField.becomeFirstResponder()
+    textField.layer.borderWidth = 1
+    textField.layer.borderColor = UIColor.systemBlue.cgColor
+}
+    
+func textFieldDidEndEditing(_ textField: UITextField) {
+    textField.layer.borderColor = UIColor.systemGray.cgColor
+}
+```
+
 
 레오 🐶
 * 
@@ -357,7 +564,7 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 
 ### 아쉬운 점
 라파 🐵
-* 
+* 이번 미션에서는 아쉬운 점 없이 잘한 것 같다.
 
 레오 🐶
 * 
@@ -369,7 +576,7 @@ if UserDefaults.standard.string(forKey: "isLoggedIn") != nil {
 
 ### 앞으로의 계획
 라파 🐵
-* 
+* 아직 API 연동 코드에 익숙하지 않아서 손에 적응할 때까지 API 연동하는 것을 많이 연습할 것이다.
 
 레오 🐶
 * 
