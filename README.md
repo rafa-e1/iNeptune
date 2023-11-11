@@ -591,11 +591,9 @@ func textFieldDidEndEditing(_ textField: UITextField) {
 <br>
 
 # 6주차
-[ **닉네임** ] 미션 결과물
+[ **라파** ] 미션 결과물
 
-<br>
-
-위클리 미션 실행화면 영상 업로드 / 스터디 미션 실행화면 영상 업로드
+![Simulator Screen Recording - iPhone 15 Pro - 2023-11-11 at 22 54 27](https://github.com/iNeptune-Code-Adventurers/iNeptune/assets/118424182/6065b1d4-1a43-42a5-a44a-b0a109a178e3)
 
 ## 회고록
 ### 배운 점
@@ -652,8 +650,6 @@ func textFieldDidEndEditing(_ textField: UITextField) {
 
 # 7주차
 [ **닉네임** ] 미션 결과물
-
-<br>
 
 위클리 미션 실행화면 영상 업로드 / 스터디 미션 실행화면 영상 업로드
 
@@ -713,8 +709,6 @@ func textFieldDidEndEditing(_ textField: UITextField) {
 # 8주차
 [ **닉네임** ] 미션 결과물
 
-<br>
-
 위클리 미션 실행화면 영상 업로드 / 스터디 미션 실행화면 영상 업로드
 
 ## 회고록
@@ -773,8 +767,6 @@ func textFieldDidEndEditing(_ textField: UITextField) {
 # 9주차
 [ **닉네임** ] 미션 결과물
 
-<br>
-
 위클리 미션 실행화면 영상 업로드 / 스터디 미션 실행화면 영상 업로드
 
 ## 회고록
@@ -832,8 +824,6 @@ func textFieldDidEndEditing(_ textField: UITextField) {
 
 # 10주차
 [ **닉네임** ] 미션 결과물
-
-<br>
 
 위클리 미션 실행화면 영상 업로드 / 스터디 미션 실행화면 영상 업로드
 
