@@ -11,7 +11,7 @@ import SwiftUI
 struct WeeklyMission6thApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabBar()
         }
     }
 }

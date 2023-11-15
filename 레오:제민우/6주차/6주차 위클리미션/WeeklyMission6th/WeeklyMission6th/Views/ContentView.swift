@@ -8,75 +8,73 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    init() {
-        let navBarAppearance = UINavigationBarAppearance()
-        navBarAppearance.backgroundColor = UIColor(named: "MainColor")
-        UINavigationBar.appearance().standardAppearance = navBarAppearance
-        UINavigationBar.appearance().compactAppearance = navBarAppearance
-        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
-        
-    }
-
     var body: some View {
-            NavigationView {
-                HStack {
-                    Text("")
-                        .navigationBarItems(
-                            leading: Button(action: { }, label: {
-                                Text("우리집 ▾")
-                                    .font(.system(size: 20,weight: .bold))
-                            }),
-                            trailing: HStack {
-                                Button(action: {}){
-                                    Image(systemName: "square.split.2x2")
-                                }
-                                Button(action:{}){
-                                    Image(systemName: "bell")
-                                }
-                                Button(action:{}){
-                                    Image(systemName: "cart")
-                                }
+        NavigationView {
+            NavigationStack {
+                VStack {
+                    ZStack {
+                        Color(UIColor.systemGray5)
+                            .ignoresSafeArea()
+                        HStack {
+                            Text("")
+                                .navigationBarItems(
+                                    leading: Button(action: { }, label: {
+                                        Text("우리집 ▾")
+                                            .font(.system(size: 20,weight: .bold))
+                                    }),
+                                    trailing: HStack {
+                                        Button(action: {}){
+                                            Image(systemName: "square.split.2x2")
+                                        }
+                                        Button(action:{}){
+                                            Image(systemName: "bell")
+                                        }
+                                        Button(action:{}){
+                                            Image(systemName: "cart")
+                                        }
+                                    }
+                                )
+                                .foregroundStyle(Color.white)
+                                .toolbarBackground(Color("MainColor"), for: .navigationBar)
+                                .toolbarBackground(.visible, for: .navigationBar)
+                        }
+                        
+                        ScrollView {
+                            SearchBar()
+                                .background(Color("MainColor"))
+                                .roundedCorner(10, corners: [.bottomLeft, .bottomRight])
+                            
+                            Image("AD")
+                                .resizable()
+                                .scaledToFit()
+                                .roundedCorner(10, corners: [.allCorners])
+                                .padding([.leading, .trailing], 10)
+                            // MainCategoryButton
+                            HStack {
+                                MainCategoryButton(mainCategoryButtonImage: "CategoryDelivery")
+                                MainCategoryButton(mainCategoryButtonImage: "CategoryBMart")
+                                MainCategoryButton(mainCategoryButtonImage: "CategorySale")
                             }
-                        )
-                        .foregroundStyle(Color.white)
-                        .background(Color("MainColor"))
-                }
-                .background(Color("MainColor"))
-            }
-        // 전체 VStack
-        ScrollView {
-            Button(action: { }) {
-                Image(systemName: "magnifyingglass")
-                    .foregroundStyle(Color("MainColor"))
-                Text("닭볶음탕 나와라 뚝딱!!")
-                    .foregroundStyle(Color.gray)
-            }
-            .background(Color.white)
-            Image("AD")
-                .resizable()
-                .scaledToFit()
-                .padding([.leading, .trailing], 10)
-            // MainCategoryButton
-            HStack {
-                MainCategoryButton(mainCategoryButtonImage: "CategoryDelivery")
-                MainCategoryButton(mainCategoryButtonImage: "CategoryBMart")
-                MainCategoryButton(mainCategoryButtonImage: "CategorySale")
-            }
-            .padding(.top, 15)
-            .padding(.leading, 10)
-            
-            BaeminOneView()
-                .padding(.top, 15)
-                .padding([.leading, .trailing], 10)
-            
-            Image("AD")
-                .resizable()
-                .scaledToFit()
-                .padding([.leading, .trailing], 10)
-        }
-        .background(Color(UIColor.systemGray6))
+                            .padding(.top, 15)
+                            .padding([.leading, .trailing], 10)
+                            
+                            BaeminOneView()
+                                .roundedCorner(10, corners: [.allCorners])
+                                .padding(.top, 15)
+                                .padding([.leading, .trailing], 10)
 
+                            Image("AD")
+                                .resizable()
+                                .scaledToFit()
+                                .roundedCorner(10, corners: [.allCorners])
+                                .padding([.top, .leading, .trailing], 10)
+                        }
+                        .background(Color(UIColor.systemGray5))
+                    }
+                }
+                
+            }
+        }
     }
 }
 
