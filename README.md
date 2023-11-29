@@ -598,7 +598,63 @@ func textFieldDidEndEditing(_ textField: UITextField) {
 ## 회고록
 ### 배운 점
 라파 🐵
-* 
+* SwiftUI에서 ```UINavigationBarAppearance``` 객체를 생성하여 내비게이션 바의 외형을 커스텀할 수 있었다.
+
+```HomeView.swift```
+```swift
+init() {
+    let navBarAppearance = UINavigationBarAppearance()
+    navBarAppearance.backgroundColor = UIColor(named: "mainColor")
+    UINavigationBar.appearance().standardAppearance = navBarAppearance
+    UINavigationBar.appearance().compactAppearance = navBarAppearance
+    UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
+}
+```
+
+* ```@State``` 속성을 사용하여 ```currentIndex```와 ```timer```를 추적하여 뷰의 상태를 저장하고 변경을 감지하여 뷰를 업데이트하는 데 사용된다.
+
+```BannerView```
+```swift
+@State private var currentIndex = 0
+@State private var timer: Timer?
+```
+
+* ```TabView```는 페이지 형태의 뷰를 제공하며, 여기에서는 ```colors``` 배열의 각 요소에 대해 ```ForEach``` 루프를 사용하여 페이징 배너 뷰를 만들었다.
+```swift
+TabView(selection: $currentIndex) {
+    ForEach(0..<colors.count, id: \.self) { index in
+        Rectangle()
+            .fill(Color(colors[index]))
+            .tag(index)
+    }
+}
+.tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic)) // PageTabViewStyle을 사용하여 페이지 간 전환 효과를 추가
+```
+
+* ```Timer```를 활용하여 일정한 시간 간격으로 배너를 전환한다. ```startTimer``` 함수에서는 ```withAnimation``` 블록 내에서 ```currentIndex```를 업데이트하여 전환 시 애니메이션을 추가한다.
+
+```swift
+TabView(selection: $currentIndex) { ... }
+.onAppear {
+    startTimer()
+}
+.onDisappear {
+    stopTimer()
+}
+
+private func startTimer() {
+    timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { _ in
+        withAnimation {
+            currentIndex = (currentIndex + 1) % colors.count
+        }
+    }
+}
+
+private func stopTimer() {
+    timer?.invalidate()
+    timer = nil
+}
+```
 
 레오 🐶
 * 
@@ -610,7 +666,8 @@ func textFieldDidEndEditing(_ textField: UITextField) {
 
 ### 잘한 점
 라파 🐵
-* 
+* ```onAppear```와 ```onDisappear```를 사용하여 배너 뷰가 나타날 때와 사라질 때 각각 타이머를 시작하고 중지하는 로직을 넣어서 효율적으로 타이머를 관리하였다.
+* 타이머와 관련된 로직을 ```startTimer```와 ```stopTimer``` 함수로 모듈화하여 코드를 더 읽기 쉽게 만들었다.
 
 레오 🐶
 * 
@@ -622,7 +679,14 @@ func textFieldDidEndEditing(_ textField: UITextField) {
 
 ### 아쉬운 점
 라파 🐵
-* 
+* 타이머 생성에 실패할 경우에 대한 에러 처리가 빠졌다.
+* "background"와 같은 색상 리터럴을 사용했는데 이를 프로젝트에서 사용하는 실제 색상 명칭으로 대체하면 더 가독성이 높아질 것이다.
+
+```swift
+.foregroundColor(Color("background")) -> .foregroundColor(Color.myBackground)
+```
+
+* 중복되는 코드가 많이 보인다. 
 
 레오 🐶
 * 
@@ -634,7 +698,7 @@ func textFieldDidEndEditing(_ textField: UITextField) {
 
 ### 앞으로의 계획
 라파 🐵
-* 
+* 중복되는 코드를 최대한 줄이고 모듈화하여 조금 더 가독성있는 코드를 작성할 것이다.
 
 레오 🐶
 * 
@@ -649,14 +713,19 @@ func textFieldDidEndEditing(_ textField: UITextField) {
 <br>
 
 # 7주차
-[ **닉네임** ] 미션 결과물
+[ **라파** ] 미션 결과물
 
-위클리 미션 실행화면 영상 업로드 / 스터디 미션 실행화면 영상 업로드
+![Simulator Screen Recording - iPhone 15 Pro - 2023-11-17 at 11 13 17](https://github.com/iNeptune-Code-Adventurers/iNeptune/assets/118424182/4f7c15cf-4df3-483b-9819-2f81b85e619f)
 
 ## 회고록
 ### 배운 점
 라파 🐵
-* 
+* ```ZStack```의 ```alignment``` 속성들 중에 ```.bottomTrailing```도 있다는 것을 알게 되었고 이는 뷰를 구성하는데 엄청 편리했다.
+
+```ProductRow.swift```
+```swift
+ZStack(alignment: .bottomTrailing) { ... }
+```
 
 레오 🐶
 * 
