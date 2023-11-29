@@ -737,7 +737,19 @@ ZStack(alignment: .bottomTrailing) { ... }
 
 ### 잘한 점
 라파 🐵
-* 
+* 코드를 모듈화하여 가독성을 높이기 위해 ```SubProductRow```라는 커스텀 뷰를 만들었다. 또한 ```ForEach``` 루프를 활용하여 중복 코드를 제거하고 ```Subproduct```의 아이템 개수만큼 뷰를 생성하는 간결한 방식으로 코드를 작성했다.
+
+```SubProductView.swift```
+```swift
+ScrollView(.horizontal) {
+    HStack {
+        ForEach(Subproduct.items) {
+            SubProductRow(imageName: $0.imageName, title: $0.title, price: $0.price)
+                .padding(.vertical, 5)
+        }
+    }
+}
+```
 
 레오 🐶
 * 
@@ -749,7 +761,7 @@ ZStack(alignment: .bottomTrailing) { ... }
 
 ### 아쉬운 점
 라파 🐵
-* 
+* 이번 프로젝트는 전 프로젝트와 큰 차이가 없고 쉬워서 아쉬운 점은 없었다.
 
 레오 🐶
 * 
@@ -761,7 +773,7 @@ ZStack(alignment: .bottomTrailing) { ... }
 
 ### 앞으로의 계획
 라파 🐵
-* 
+* 최대한 가독성 있고 효율적인 코드를 연구해볼 것이다.
 
 레오 🐶
 * 
