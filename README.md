@@ -1973,9 +1973,9 @@ struct HeaderImageView: View {
 <br>
 
 # 9주차
-[ **닉네임** ] 미션 결과물
+[ **라파** ] 미션 결과물
 
-위클리 미션 실행화면 영상 업로드 / 스터디 미션 실행화면 영상 업로드
+![Simulator Screen Recording - iPhone 15 Pro - 2023-12-24 at 18 01 22](https://github.com/iNeptune-Code-Adventurers/iNeptune/assets/118424182/598322e1-b244-47e3-be2e-774992e933d0)
 
 ## 회고록
 ### 배운 점
