@@ -9,17 +9,6 @@ import SwiftUI
 
 struct MainOptionView: View {
     @ObservedObject var orderModel: OrderModel
-    @State var selectedSize: String = "M" {
-        didSet {
-            if selectedSize == "L" && oldValue != "L" {
-                // 'L' 사이즈를 선택했을 때
-                totalPrice += 3000
-            } else if selectedSize != "L" && oldValue == "L" {
-                // 'L' 사이즈 선택을 해제했을 때
-                totalPrice -= 3000
-            }
-        }
-    }
     @Binding var totalPrice: Int
     
     var body: some View {

@@ -9,24 +9,6 @@ import SwiftUI
 
 struct SideOptionView: View {
     @ObservedObject var orderModel: OrderModel
-    @State var isPepsiSelected = false {
-        didSet {
-            if isPepsiSelected && !oldValue {
-                totalPrice += 2000
-            } else if !isPepsiSelected && oldValue {
-                totalPrice -= 2000
-            }
-        }
-    }
-    @State var isSodaSelected = false {
-        didSet {
-            if isSodaSelected && !oldValue {
-                totalPrice += 2000
-            } else if !isSodaSelected && oldValue {
-                totalPrice -= 2000
-            }
-        }
-    }
     @Binding var totalPrice: Int
     
     var body: some View {
