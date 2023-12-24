@@ -1,3 +1,4 @@
+
 # iNeptune
 
 ### [ 대학교 연합 동아리 UMC - Neptune 지부 ]
@@ -1817,14 +1818,89 @@ ScrollView(.horizontal) {
 <br>
 
 # 8주차
-[ **닉네임** ] 미션 결과물
+[ **라파** ] 미션 결과물
 
-위클리 미션 실행화면 영상 업로드 / 스터디 미션 실행화면 영상 업로드
+![Simulator Screen Recording - iPhone 15 Pro - 2023-12-24 at 09 25 04](https://github.com/iNeptune-Code-Adventurers/iNeptune/assets/118424182/94f51030-6f74-4c23-8e07-5589bf27cc72)
 
 ## 회고록
 ### 배운 점
 라파 🐵
-* 
+* ```GeometryReader```를 사용함으로써 뷰의 크기와 위치에 대한 동적인 데이터에 접근할 수 있게 되었다. 이를 통해, 헤더 이미지를 스크롤에 따라 유동적으로 조절하는 **'Stretchy Header'**를 구현할 수 있었다.
+
+```HeaderImageView.swift```
+```swift
+struct HeaderImageView: View {
+    ...
+    var body: some View {
+        GeometryReader { geometry **in**
+            let offset = geometry.frame(in: .global).minY
+            setOffet(offset: offset)
+            Image("food")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .clipped()
+                .frame(width: geometry.size.width, height: 250 + (offset > 0 ? offset : 0))
+                .offset(y: (offset > 0 ? -offset : 0))
+        }
+        .frame(minHeight: 250)
+    }
+    ...
+}
+```
+
+* ```MainOptionView```와 ```SideOptionView```에서 ```@Binding var totalPrice: Int```를 통해 부모 뷰(```ContentView```)에서 관리하는 ```totalPrice``` 상태를 자식 뷰에 바인딩 하여 부모 뷰와 자식 뷰 간의 상태 동기화를 수행했다.
+
+```MainOptionView```
+```swift
+struct MainOptionView: View {
+    ...
+    @Binding var totalPrice: Int
+    ...
+}
+```
+
+* ```@State```는 SwiftUI의 데이터 플로우 중 핵심적인 부분으로 뷰의 특정 상태를 관리하는 데 사용된다. 이를 사용함으로써  뷰의 상태 변화를 쉽게 관리하고 해당 상태가 변할 때마다 뷰가 자동으로 업데이트되도록 한다. 
+* ```ContentView```에서 사용한 ```@State private var totalPrice = 20_000```를 통해 사용자 인터페이스의 총 가격을 관리하고 그 값이 변경될 때마다 자동으로 뷰를 업데이트했다.
+
+```ContentView.swift```
+```swift
+struct ContentView: View {
+    ...
+    @State  private var totalPrice = 20_000
+    ...
+
+    var body: some View {
+        ...
+        MainOptionView(orderModel: orderModel, totalPrice: $totalPrice)
+        SideOptionView(orderModel: orderModel, totalPrice: $totalPrice)
+        ...
+    }
+}
+```
+
+* ```OrderModel``` 클래스는 ```@ObservableObject``` 프로토콜을 채택함으로써 객체의 상태 변화를 관찰할 수 있다. 예를 들어, ```@Published``` 프로퍼티로 선언된 ```selectedSize```, ```totalPrice```, ```isPepsiSelected```, ```isSodaSelected```는 값이 변경될 때마다 해당 뷰를 업데이트하도록 알림을 보낸다.
+
+```OrderModel.swift```
+```swift
+class OrderModel: ObservableObject {
+    @Published var selectedSize: String = "M" {
+        didSet {
+            if selectedSize == "L" && oldValue != "L" {
+                // 'L' 사이즈를 선택했을 때
+                totalPrice += 3000
+            } else if selectedSize != "L" && oldValue == "L" {
+                // 'L' 사이즈 선택을 해제했을 때
+                totalPrice -= 3000
+            }
+        }
+    }
+    @Published var totalPrice: Int = 20000
+    @Published var isPepsiSelected: Bool = false
+    @Published var isSodaSelected: Bool = false
+}
+```
+
+* ```@Published```는 반응형 프로그래밍으로, 이 변수들의 값이 변할 때마다 구독하고 있는 뷰들이 자동으로 업데이트 되도록 한다. 예를 들어, 사용자가 'L' 사이즈를 선택하면 ```selectedSize``` 프로퍼티가 업데이트되고 이것은 ```totalPrice```의 자동 업데이트 되도록 한다. 이 과정은 반응형 프로그래밍에서 중요한 부분으로 데이터의 변경에 따른 자동적인 UI 업데이트를 가능하게 만든다.
 
 레오 🐶
 * 
@@ -1836,7 +1912,29 @@ ScrollView(.horizontal) {
 
 ### 잘한 점
 라파 🐵
-* 
+* ```GeometryReader```를 활용하는 과정에서 ```geometry.frame(in: .global).minY```를 통해 스크롤 위치에 따라 이미지의 크기와 위치를 정교하게 조절하는 로직을 구현했다. 이는 ```GeometryReader```의 핵심 기능을 활용하여 사용자의 스크롤에 따라 동적으로 반응하는 UI를 만들 수 있었다. 그리고 ```offsetY```라는 ```@State``` 변수를 사용함으로써 스크롤 값이 변경될 때마다 UI가 실시간으로 업데이트되도록 했다. 이러한 접근 방식으로 ```Stretchy Header```를 구현할 수 있었다.
+
+```HeaderImageView.swift```
+```swift
+struct HeaderImageView: View {
+    @State private var offsetY: CGFloat = CGFloat.zero
+    
+    var body: some View {
+        GeometryReader { geometry **in**
+            let offset = geometry.frame(in: .global).minY
+            setOffet(offset: offset)
+            Image("food")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .clipped()
+                .frame(width: geometry.size.width, height: 250 + (offset > 0 ? offset : 0))
+                .offset(y: (offset > 0 ? -offset : 0))
+        }
+        .frame(minHeight: 250)
+    }
+    ...
+}
+```
 
 레오 🐶
 * 
@@ -1848,7 +1946,7 @@ ScrollView(.horizontal) {
 
 ### 아쉬운 점
 라파 🐵
-* 
+* MVVM 아키텍처 패턴을 활용해 보려 하였지만 제대로 활용하지 못해 아쉽다. MVVM 패턴은 데이터의 표현과 비즈니스 로직을 분리하는 데 중점을 두는데 이 미션에서는 이러한 분리가 완전히 이루어지지 않았다. 예를 들어, 뷰 모델 내에서 데이터 처리와 UI 로직이 완전히 분리되지 않아 이로 인해 코드가 길어질수록 코드의 복잡성이 증가하고 유지 보수가 어렵게 되었다.
 
 레오 🐶
 * 
@@ -1860,7 +1958,7 @@ ScrollView(.horizontal) {
 
 ### 앞으로의 계획
 라파 🐵
-* 
+* 뷰와 뷰 모델의 역할을 더 명확하게 분리하고 데이터 바인딩을 보다 효과적으로 활용할 수 있도록 더 공부할 것이다.
 
 레오 🐶
 * 
