@@ -14,7 +14,7 @@
 # 목차
 ### Conventions
 - [Folder Structure](#Folder-Structure)
-- [Commit Convention](Commit-Convention)
+- [Commit Convention](#Commit-Convention)
 - [Swift Style Guide](#Swift-Style-Guide)
   - [Code Formatting](#Code-Formatting)
   - [Naming](#Naming)
@@ -132,9 +132,6 @@ var deviceModels: [String]
 <br>
 
 [목차로 이동 🔺](#목차)
-
----
-
 ### [ 들여쓰기 및 띄어쓰기 ]
 > 탭을 눌렀을 때 4개의 space를 사용합니다.
 
@@ -307,9 +304,6 @@ let squares = userCounts.map() { $0 * $0 }
 <br>
 
 [목차로 이동 🔺](#목차)
-
----
-
 ### [ 줄바꿈 ]
 > 클래스 블럭과 클래스 내부 코드 사이는 공백으로 구분합니다.
 
@@ -443,15 +437,10 @@ guard let user = self.veryLongFunctionNameWhichReturnsOptionalUser(), let name =
 <br>
 
 [목차로 이동 🔺](#목차)
-
----
-
 ### [ 최대 줄 길이 ]
 > 한 줄은 최대 120자를 넘지 않아야 합니다.
 
 <br>
-
-[목차로 이동 🔺](#목차)
 
 ---
 
@@ -485,9 +474,6 @@ struct someStructure {
 <br>
 
 [목차로 이동 🔺](#목차)
-
----
-
 ### [ 함수 ]
 > 함수 이름에는 lowerCamelCase를 사용합니다.
 
@@ -544,9 +530,6 @@ func pressBack() {
 <br>
 
 [목차로 이동 🔺](#목차)
-
----
-
 ### [ 변수와 상수 ]
 > 변수와 상수 이름에는 lowerCamelCase를 사용합니다.
 
@@ -564,9 +547,6 @@ let MAX_LINES = 3
 <br>
 
 [목차로 이동 🔺](#목차)
-
----
-
 ### [ 열거형 ]
 > enum의 이름에는 UpperCamelCase를 사용하고 enum의 각 case에는 lowerCamelCase를 사용합니다.
 
@@ -594,9 +574,6 @@ enum result {
 <br>
 
 [목차로 이동 🔺](#목차)
-
----
-
 ### [ 프로토콜 ]
 > 프로토콜의 이름에는 UpperCamelCase를 사용합니다. 
 > 구조체나 클래스에서 프로토콜을 채택할 때는 콜론과 빈칸을 넣어 구분하여 명시합니다. 
@@ -643,9 +620,6 @@ extension UIViewController:SomeProtocol, AnotherProtocol {
 <br>
 
 [목차로 이동 🔺](#목차)
-
----
-
 ### [ 약어 ]
 > 약어로 시작하는 경우 소문자로 표기하고, 그 외의 경우에는 항상 대문자로 표기합니다.
 
@@ -668,9 +642,6 @@ let URLString: String?
 <br>
 
 [목차로 이동 🔺](#목차)
-
----
-
 ### [ 일반 ]
 > 일반적인 부분이 앞에두고 구체적인 부분을 뒤에 둡니다.
 
@@ -817,9 +788,6 @@ let evenSquares = numbers.filter {$0 % 2 == 0}.map { $0 * $0 }
 <br>
 
 [목차로 이동 🔺](#목차)
-
----
-
 ### [ 클래스와 구조체 ]
 > 구조체를 생성할 때는 Swift 구조체 생성자를 사용합니다.
 
@@ -836,9 +804,6 @@ let frame = CGRectMake(0, 0, 100, 100)
 <br>
 
 [목차로 이동 🔺](#목차)
-
----
-
 ### [ 타입 ]
 > Array<T>와, Dictionary<T: U> 보다는 [T], [T: U]를 사용합니다.
 
@@ -857,9 +822,6 @@ var names: Dictionary<Int, String>?
 <br>
 
 [목차로 이동 🔺](#목차)
-
----
-
 ### [ 타입추론 사용 ]
 > 컴파일러가 문맥속에서 타입을 추론할 수 있으면 더 간결한 코드를 위해 타입을 생략합니다.
 
@@ -882,9 +844,6 @@ let view = UIView(frame: CGRect.zero)
 <br>
 
 [목차로 이동 🔺](#목차)
-
----
-
 ### [ self ]
 > 문법의 모호함을 제거하기 위해 언어에서 필수로 요구하지 않는 이상 self는 사용하지 않습니다.
 
@@ -935,9 +894,6 @@ final class Listing {
 <br>
 
 [목차로 이동 🔺](#목차)
-
----
-
 ### [ 튜플 ]
 > 튜플의 맴버에는 명확성을 위해 이름을 붙여줍니다. 
 > (만약 필드가 3개를 넘는 경우 struct를 사용을 고려해보는 것을 권장합니다.)
@@ -959,9 +915,6 @@ func whatever() -> (Int, Int) {
 <br>
 
 [목차로 이동 🔺](#목차)
-
----
-
 ### [ final ]
 > 더 이상 상속이 발생하지 않는 클래스는 항상 final 키워드로 선언합니다.
 
@@ -982,9 +935,6 @@ class ViewController: UIViewController {
 <br>
 
 [목차로 이동 🔺](#목차)
-
----
-
 ### [ 프로토콜 extension ]
 > 프로토콜을 적용할 때는 extension을 만들어서 관련된 매소드를 모아둡니다.
 
@@ -1027,9 +977,6 @@ let cancel: UIButton
 <br>
 
 [목차로 이동 🔺](#목차)
-
----
-
 ### [ 사용하지 않는 코드 ]
 > Xcode가 자동으로 생성한 템플릿을 포함한 사용하지 않는 코드는 placeholder 코멘트를 포함해 모두 제거합니다.
 
@@ -1056,9 +1003,6 @@ override func tableView(_ tableView: UITableView, numberOfRowsInSection section:
 <br>
 
 [목차로 이동 🔺](#목차)
-
----
-
 ### [ 주석 ]
 > ///를 사용해서 문서화에 사용되는 주석을 남깁니다.
 
