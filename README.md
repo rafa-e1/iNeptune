@@ -1826,7 +1826,7 @@ ScrollView(.horizontal) {
 ## 회고록
 ### 배운 점
 라파 🐵
-* ```GeometryReader```를 사용함으로써 뷰의 크기와 위치에 대한 동적인 데이터에 접근할 수 있게 되었다. 이를 통해, 헤더 이미지를 스크롤에 따라 유동적으로 조절하는 **'Stretchy Header'**를 구현할 수 있었다.
+* ```GeometryReader```를 사용함으로써 뷰의 크기와 위치에 대한 동적인 데이터에 접근할 수 있게 되었다. 이를 통해, 헤더 이미지를 스크롤에 따라 유동적으로 조절하는 **Stretchy Header**를 구현할 수 있었다.
 
 ```HeaderImageView.swift```
 ```swift
