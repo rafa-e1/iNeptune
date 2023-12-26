@@ -1,4 +1,5 @@
 
+
 # iNeptune
 
 ### [ 대학교 연합 동아리 UMC - Neptune 지부 ]
@@ -1980,7 +1981,24 @@ struct HeaderImageView: View {
 ## 회고록
 ### 배운 점
 라파 🐵
-* 
+* ```UserDefaults```는 간단한 데이터를 저장하는 데 사용되는 키-값 쌍 시스템이다. ```LoginViewModel```에서 ```UserDefaults```를 사용해 사용자 정보를 저장하고 한다. 
+
+```LoginViewModel.swift```
+```swift
+class LoginViewModel: ObservableObject {
+    ...
+	func register() {
+		if UserDefaults.standard.object(forKey: userInfo.id) == nil {
+			UserDefaults.standard.setValue(["id": userInfo.id, "pw": userInfo.pw], forKey: userInfo.id)
+			registrationSuccess = true
+			loginMessage = "회원가입 완료"
+		} else {
+			loginMessage = "이미 존재하는 아이디입니다."
+		}
+	}
+
+}
+```
 
 레오 🐶
 * 
@@ -1992,7 +2010,32 @@ struct HeaderImageView: View {
 
 ### 잘한 점
 라파 🐵
-* 
+* ```@Published``` 속성 래퍼를 사용해 ```LoginViewModel```의 ```isLoggedIn``` 상태가 변경되면 ```LoginView```에서 로그인 성공 메시지를 표시하도록 구현하였다.
+
+```LoginViewModel.swift```
+```swift
+class LoginViewModel: ObservableObject {
+	
+	@Published var userInfo = UserInfo(id: "", pw: "")
+	@Published var isLoggedIn = false
+	@Published var registrationSuccess = false
+	@Published var loginMessage = ""
+
+	func login() {
+	if let savedUserInfo = UserDefaults.standard.dictionary(forKey: userInfo.id) as? [String: String] {
+		if savedUserInfo["pw"] == userInfo.pw {
+			isLoggedIn = true
+			loginMessage = "로그인 성공!"
+		} else {
+			loginMessage = "비밀번호가 일치하지 않습니다."
+		}
+	} else {
+		loginMessage = "존재하지 않는 아이디입니다."
+	}
+	
+	...
+}
+```
 
 레오 🐶
 * 
@@ -2004,7 +2047,7 @@ struct HeaderImageView: View {
 
 ### 아쉬운 점
 라파 🐵
-* 
+* 이번 미션은 목표가 명확하고 실행이 간결했기 때문에 특별한 아쉬움 없이 원활하게 수행할 수 있었다.
 
 레오 🐶
 * 
@@ -2016,7 +2059,7 @@ struct HeaderImageView: View {
 
 ### 앞으로의 계획
 라파 🐵
-* 
+* 드디어 마지막 미션인 10주차 미션을 할 것이다.
 
 레오 🐶
 * 
@@ -2031,14 +2074,142 @@ struct HeaderImageView: View {
 <br>
 
 # 10주차
-[ **닉네임** ] 미션 결과물
+[ **라파** ] 미션 결과물
 
-위클리 미션 실행화면 영상 업로드 / 스터디 미션 실행화면 영상 업로드
+![Simulator Screen Recording - iPhone 15 Pro - 2023-12-26 at 16 50 57](https://github.com/iNeptune-Code-Adventurers/iNeptune/assets/118424182/afb4ccc5-e997-4471-9631-2a60aab4a425)
 
 ## 회고록
 ### 배운 점
 라파 🐵
-* 
+* 카카오 로그인 기능을 통합하면서 카카오 SDK의 사용법을 배웠다. ```TenthMissionApp.swift```에서 ```KakaoSDK.initSDK```를 사용해 초기 설정을 진행하고 ```LoginViewModel```에서 ```UserApi```를 이용해 카카오 계정 로그인 및 카카오톡 앱 로그인 기능을 구현했다.
+
+```TenthMissionApp.swift```
+```swift
+import SwiftUI
+
+import KakaoSDKCommon
+import KakaoSDKAuth
+
+@main
+struct TenthMissionApp: App {
+    init() {
+        let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] ?? ""
+        KakaoSDK.initSDK(appKey:kakaoAppKey as! String)
+    }
+    
+    @StateObject var viewModel = LoginViewModel()
+    
+    var body: some Scene {
+        WindowGroup {
+            LoginView()
+                .onOpenURL { url in
+                    if (AuthApi.isKakaoTalkLoginUrl(url)) {
+                        _ = AuthController.handleOpenUrl(url: url)
+                    }
+                }
+        }
+    }
+}
+```
+
+```LoginViewModel```
+```swift
+import Foundation
+
+import KakaoSDKUser
+
+class LoginViewModel: ObservableObject {
+    
+    @Published var userInfo = UserInfo(id: "", pw: "")
+    @Published var isLoggedIn = false {
+        didSet {
+            UserDefaults.standard.set(isLoggedIn, forKey: "isLoggedIn")
+        }
+    }
+    ...
+    
+    init() {
+        checkIfLoggedIn()
+    }
+    
+    ...
+    
+    func kakaoLogin() {
+        if UserApi.isKakaoTalkLoginAvailable() {
+            // 카카오톡 앱을 통한 로그인
+            UserApi.shared.loginWithKakaoTalk { [weak self] (oauthToken, error) in
+                if let error = error {
+                    DispatchQueue.main.async {
+                        self?.loginMessage = "카카오 로그인 실패: \(error.localizedDescription)"
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self?.isLoggedIn = true
+                        UserDefaults.standard.set(true, forKey: "isKakaoLoggedIn")
+                        self?.loginMessage = "카카오 로그인 성공!"
+                    }
+                }
+            }
+        } else {
+            // 카카오 계정을 통한 로그인
+            UserApi.shared.loginWithKakaoAccount { [weak self] (oauthToken, error) in
+                if let error = error {
+                    DispatchQueue.main.async {
+                        self?.loginMessage = "카카오 로그인 실패: \(error.localizedDescription)"
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self?.isLoggedIn = true
+                        UserDefaults.standard.set(true, forKey: "isKakaoLoggedIn")
+                        self?.loginMessage = "카카오 로그인 성공!"
+                    }
+                }
+            }
+        }
+    }
+
+    ...
+
+    private func checkIfLoggedIn() {
+        isLoggedIn = UserDefaults.standard.bool(forKey: "isLoggedIn")
+    }
+    
+}
+```
+
+* ```ArticleViewModel```에서 외부 뉴스 API를 통해 뉴스 기사 데이터를 가져오는 방법을 구현했다. 이를 통해 실시간으로 변하는 외부 데이터를 앱 내에서 처리하고 표시하는 방법을 배웠다.
+
+```ArticleViewModel```
+```swift
+class ArticleViewModel: ObservableObject {
+
+    @Published var articles = [Article]()
+    
+    init() {
+        getArticles()
+    }
+    
+    func getArticles() {
+        let urlString = "https://newsapi.org/v2/everything?q=tesla&from=2023-11-26&sortBy=publishedAt&apiKey=1b5ea3c15eae4e45ab353b9e4ee892fb"
+        guard let url = URL(string: urlString) else {
+            print("Couldn't create url object")
+            return
+    }
+
+    URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+        if let data = data {
+            let decoder = JSONDecoder()
+            if let articleService = try? decoder.decode(ArticleService.self, from: data) {
+                DispatchQueue.main.async {
+                    self?.articles = articleService.articles ?? []
+                }
+            } else {
+                print("Error parsing the json")
+            }
+        }
+    }.resume()
+}
+```
 
 레오 🐶
 * 
@@ -2050,7 +2221,28 @@ struct HeaderImageView: View {
 
 ### 잘한 점
 라파 🐵
-* 
+* ```FilledButton``` 커스텀 뷰를 통해 다양한 스타일의 버튼을 생성할 수 있게 만들었다. 이 커스텀 뷰는 타이틀, 액션, 타이틀 색상, 배경 색상을 매개변수로 받아 사용자에게 다양한 시각적 선택을 제공한다.
+
+```FilledButton.swift```
+```swift
+struct FilledButton: View {
+    var title: String
+    var action: () -> Void
+    var titleColor: Color
+    var backgroundColor: Color
+
+    var body: some View {
+        Button(action: action) {
+            Text(title)
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(backgroundColor)
+                .foregroundColor(titleColor)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+        }
+    }
+}
+```
 
 레오 🐶
 * 
@@ -2062,7 +2254,7 @@ struct HeaderImageView: View {
 
 ### 아쉬운 점
 라파 🐵
-* 
+* 현재 사용자 정보를 ```UserDefaults```에 저장하는 방식은 보안에 취약할 수 있다고 한다.  이렇게 민감한 정보들은 ```UserDefaults```에 저장하면 단순히 텍스트 형태로 저장하기 때문에 OS를 탈옥하면 내용물을 볼 수 있다.
 
 레오 🐶
 * 
@@ -2074,7 +2266,7 @@ struct HeaderImageView: View {
 
 ### 앞으로의 계획
 라파 🐵
-* 
+* 앞으로는 iOS의 Keychain 같은 안전한 저장 방법을 사용하여 사용자 정보를 보호하는 방향으로 개선해볼 것이다.
 
 레오 🐶
 * 
