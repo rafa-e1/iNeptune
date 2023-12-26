@@ -1433,7 +1433,7 @@ private func setUserInfo() {
 }
 ```
 
-* 일반 회원가입을 통해 로그인을 하면 네비게이션 바 타이틀에 회원가입에 사용된 아이디 데이터가 전달되고 카카오로 로그인을 하면 카카오에서 사용하는 이름이 전달되도록 설정했다.
+* 일반 회원가입을 통해 로그인을 하면 네비게이션 바 타이틀에 회원가입에 사용된 아이디 데이터가 전달되고 카카오로 로그인을 하면 카카오에서 사용하는 이름이 전달되도록 설정하였다.
 
 ```ArticleViewController.swift```
 ```swift
@@ -1444,7 +1444,7 @@ if let nickname = UserDefaults.standard.string(forKey: "nickname") {
 }
 ```
 
-* 비밀번호 입력 필드에서 눈 모양의 아이콘을 통해 비밀번호를 보이기/가리기 할 수 있는 기능을 구현했다. 하지만 비밀번호를 어느정도 입력한 상태에서 보이게 했다가 다시 가리고 비밀번호를 이어서 입력하려고 할 때 비밀번호가 모두 지워지고 처음부터 다시 입력되는 버그(?)가 있어서 커스텀 TextField를 만들고 TextField를 재정의하는 방법을 사용했다.
+* 비밀번호 입력 필드에서 눈 모양의 아이콘을 통해 비밀번호를 보이기/가리기 할 수 있는 기능을 구현하였다. 하지만 비밀번호를 어느정도 입력한 상태에서 보이게 했다가 다시 가리고 비밀번호를 이어서 입력하려고 할 때 비밀번호가 모두 지워지고 처음부터 다시 입력되는 버그(?)가 있어서 커스텀 TextField를 만들고 TextField를 재정의하는 방법을 사용하였다.
 
 ```CustomPwTextField.swift```
 ```swift
@@ -1471,11 +1471,11 @@ class CustomPwTextField: UITextField {
 ```
 
 **_< NEWS API >_**
-* **[ 프로토콜 활용 ]**: ```ArticleModelProtocol```이라는 프로토콜을 생성하여 델리게이션 패턴을 적용했다. 이를 통해 모델의 작업이 완료되면 뷰 컨트롤러에게 결과를 전달할 수 있었다.
+* **[ 프로토콜 활용 ]**: ```ArticleModelProtocol```이라는 프로토콜을 생성하여 델리게이션 패턴을 적용하였다. 이를 통해 모델의 작업이 완료되면 뷰 컨트롤러에게 결과를 전달할 수 있었다.
 
 * **[ 네트워크 요청 및 비동기 처리 ]**: 네트워크 요청은 ```URLSession```을 사용하여 비동기로 처리되고 있다. 이는 앱이 다운로드 작업이 완료될 때까지 다른 작업을 수행할 수 있도록 한다. 또한, ```DispatchQueue.main.async```를 사용하여 메인 스레드에서 UI 업데이트를 수행하고 있다.
 
-* **[ 에러 처리 ]**: 네트워크 요청 도중 발생하는 에러에 대한 처리를 구현했다. 만약 에러가 없으면 데이터를 디코딩하고 에러가 발생하면 해당 에러에 대한 적절한 메시지를 출력할 수 있다.
+* **[ 에러 처리 ]**: 네트워크 요청 도중 발생하는 에러에 대한 처리를 구현하였다. 만약 에러가 없으면 데이터를 디코딩하고 에러가 발생하면 해당 에러에 대한 적절한 메시지를 출력할 수 있다.
 
 * **[ URL 문자열 상수 사용 ]**: API 엔드포인트에 대한 URL 문자열이 상수로 정의되어 있다. 이는 오타나 변경에 따른 영향을 최소화하고 코드를 더 읽기 쉽게 만든다.
 
@@ -1849,7 +1849,7 @@ struct HeaderImageView: View {
 }
 ```
 
-* ```MainOptionView```와 ```SideOptionView```에서 ```@Binding var totalPrice: Int```를 통해 부모 뷰(```ContentView```)에서 관리하는 ```totalPrice``` 상태를 자식 뷰에 바인딩 하여 부모 뷰와 자식 뷰 간의 상태 동기화를 수행했다.
+* ```MainOptionView```와 ```SideOptionView```에서 ```@Binding var totalPrice: Int```를 통해 부모 뷰(```ContentView```)에서 관리하는 ```totalPrice``` 상태를 자식 뷰에 바인딩 하여 부모 뷰와 자식 뷰 간의 상태 동기화를 수행하였다.
 
 ```MainOptionView```
 ```swift
@@ -1861,7 +1861,7 @@ struct MainOptionView: View {
 ```
 
 * ```@State```는 SwiftUI의 데이터 플로우 중 핵심적인 부분으로 뷰의 특정 상태를 관리하는 데 사용된다. 이를 사용함으로써  뷰의 상태 변화를 쉽게 관리하고 해당 상태가 변할 때마다 뷰가 자동으로 업데이트되도록 한다. 
-* ```ContentView```에서 사용한 ```@State private var totalPrice = 20_000```를 통해 사용자 인터페이스의 총 가격을 관리하고 그 값이 변경될 때마다 자동으로 뷰를 업데이트했다.
+* ```ContentView```에서 사용한 ```@State private var totalPrice = 20_000```를 통해 사용자 인터페이스의 총 가격을 관리하고 그 값이 변경될 때마다 자동으로 뷰를 업데이트하였다.
 
 ```ContentView.swift```
 ```swift
@@ -1913,7 +1913,7 @@ class OrderModel: ObservableObject {
 
 ### 잘한 점
 라파 🐵
-* ```GeometryReader```를 활용하는 과정에서 ```geometry.frame(in: .global).minY```를 통해 스크롤 위치에 따라 이미지의 크기와 위치를 정교하게 조절하는 로직을 구현했다. 이는 ```GeometryReader```의 핵심 기능을 활용하여 사용자의 스크롤에 따라 동적으로 반응하는 UI를 만들 수 있었다. 그리고 ```offsetY```라는 ```@State``` 변수를 사용함으로써 스크롤 값이 변경될 때마다 UI가 실시간으로 업데이트되도록 했다. 이러한 접근 방식으로 ```Stretchy Header```를 구현할 수 있었다.
+* ```GeometryReader```를 활용하는 과정에서 ```geometry.frame(in: .global).minY```를 통해 스크롤 위치에 따라 이미지의 크기와 위치를 정교하게 조절하는 로직을 구현하였다. 이는 ```GeometryReader```의 핵심 기능을 활용하여 사용자의 스크롤에 따라 동적으로 반응하는 UI를 만들 수 있었다. 그리고 ```offsetY```라는 ```@State``` 변수를 사용함으로써 스크롤 값이 변경될 때마다 UI가 실시간으로 업데이트되도록 하였다. 이러한 접근 방식으로 ```Stretchy Header```를 구현할 수 있었다.
 
 ```HeaderImageView.swift```
 ```swift
@@ -2081,7 +2081,7 @@ class LoginViewModel: ObservableObject {
 ## 회고록
 ### 배운 점
 라파 🐵
-* 카카오 로그인 기능을 통합하면서 카카오 SDK의 사용법을 배웠다. ```TenthMissionApp.swift```에서 ```KakaoSDK.initSDK```를 사용해 초기 설정을 진행하고 ```LoginViewModel```에서 ```UserApi```를 이용해 카카오 계정 로그인 및 카카오톡 앱 로그인 기능을 구현했다.
+* 카카오 로그인 기능을 통합하면서 카카오 SDK의 사용법을 배웠다. ```TenthMissionApp.swift```에서 ```KakaoSDK.initSDK```를 사용해 초기 설정을 진행하고 ```LoginViewModel```에서 ```UserApi```를 이용해 카카오 계정 로그인 및 카카오톡 앱 로그인 기능을 구현하였다.
 
 ```TenthMissionApp.swift```
 ```swift
@@ -2177,7 +2177,7 @@ class LoginViewModel: ObservableObject {
 }
 ```
 
-* ```ArticleViewModel```에서 외부 뉴스 API를 통해 뉴스 기사 데이터를 가져오는 방법을 구현했다. 이를 통해 실시간으로 변하는 외부 데이터를 앱 내에서 처리하고 표시하는 방법을 배웠다.
+* ```ArticleViewModel```에서 외부 뉴스 API를 통해 뉴스 기사 데이터를 가져오는 방법을 구현하였다. 이를 통해 실시간으로 변하는 외부 데이터를 앱 내에서 처리하고 표시하는 방법을 배웠다.
 
 ```ArticleViewModel```
 ```swift
