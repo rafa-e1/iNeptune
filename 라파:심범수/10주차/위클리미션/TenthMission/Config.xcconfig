@@ -1,0 +1,11 @@
+//
+//  Config.xcconfig
+//  TenthMission
+//
+//  Created by Rafael on 12/26/23.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+KAKAO_NATIVE_APP_KEY = e191dddf51350544b7e3535e6f6b4f5e
